@@ -9,7 +9,10 @@
     "watch:css": "tailwindcss -i ./src/input.css -o ./static/css/app.css --watch",
     "build": "npm run fetch:assets && npm run build:css && node scripts/python.mjs build.py",
     "dev": "node scripts/python.mjs app.py",
-    "setup": "npm run fetch:assets && npm run build:css"
+    "setup": "npm run fetch:assets && npm run build:css",
+    "test": "npm run test:py && npm run test:e2e",
+    "test:py": "node scripts/python.mjs -m unittest discover -s tests",
+    "test:e2e": "node tests/e2e.mjs"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.3.3",
@@ -25,5 +28,8 @@
   "homepage": "https://github.com/diegoroman666/sciencekit#readme",
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1"
   }
 }

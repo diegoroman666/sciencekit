@@ -90,62 +90,62 @@ SUC-088,Cuenca,Alimentos,Tienda física,37.0,21.36,20.87,155.22
 SUC-089,Cuenca,Tecnología,Tienda física,40.3,290.54,21.09,135.81
 SUC-090,Manta,Alimentos,Online,31.9,20.08,19.49,135.37
 SUC-091,Guayaquil,Tecnología,Online,56.5,353.99,22.34,211.64
-SUC-092,Quito,Alimentos,Online,4.0,23.45,6.38,66.09
-SUC-093,Cuenca,Alimentos,Online,38.4,17.76,18.19,158.77
-SUC-094,Manta,Tecnología,Tienda física,87.4,225.02,38.49,264.04
-SUC-095,Guayaquil,Alimentos,Mixto,37.2,24.56,21.71,169.7
-SUC-096,Loja,Hogar,Tienda física,32.7,125.72,21.07,122.28
-SUC-097,Cuenca,Hogar,Mixto,32.4,84.22,19.89,144.03
-SUC-098,Loja,Hogar,Mixto,51.0,107.12,23.88,173.74
-SUC-099,Loja,Vestuario,Tienda física,61.5,57.02,30.14,209.84
-SUC-100,Cuenca,Hogar,Tienda física,45.7,108.8,27.59,187.2
-SUC-101,Manta,Vestuario,Online,66.8,45.45,25.32,220.52
-SUC-102,Loja,Tecnología,Tienda física,53.2,318.04,27.8,175.73
-SUC-103,Guayaquil,Vestuario,Online,34.0,45.17,21.3,136.12
-SUC-104,Quito,Alimentos,Mixto,55.2,22.2,30.75,225.16
-SUC-105,Quito,Tecnología,Online,41.1,388.46,35.37,195.24
-SUC-106,Loja,Alimentos,Tienda física,90.1,19.79,31.12,264.18
-SUC-107,Loja,Hogar,Online,39.7,98.57,17.36,147.83
-SUC-108,Guayaquil,Vestuario,Mixto,45.9,55.87,20.8,169.46
-SUC-109,Loja,Vestuario,Tienda física,31.4,61.65,20.75,128.56
-SUC-110,Loja,Vestuario,Tienda física,47.2,46.83,21.47,169.05
-SUC-111,Cuenca,Hogar,Tienda física,39.0,93.02,20.7,136.32
-SUC-112,Cuenca,Hogar,Mixto,43.6,99.46,19.66,166.15
-SUC-113,Quito,Vestuario,Mixto,32.5,47.94,17.54,146.1
-SUC-114,Guayaquil,Alimentos,Mixto,51.1,25.23,21.98,204.45
-SUC-115,Manta,Hogar,Mixto,40.4,91.48,20.04,164.02
-SUC-116,Loja,Vestuario,Tienda física,51.3,50.68,32.28,209.96
-SUC-117,Quito,Tecnología,Tienda física,19.1,308.85,13.09,109.82
-SUC-118,Loja,Alimentos,Tienda física,70.6,18.28,32.76,217.64
-SUC-119,Loja,Hogar,Tienda física,59.9,65.13,24.53,183.85
-SUC-120,Cuenca,Alimentos,Tienda física,45.5,18.24,25.69,155.29
-SUC-121,Manta,Tecnología,Tienda física,45.8,276.84,24.69,168.99
-SUC-122,Manta,Alimentos,Online,37.3,24.82,11.56,106.14
-SUC-123,Quito,Alimentos,Tienda física,22.8,19.7,16.07,96.69
-SUC-124,Manta,Alimentos,Online,66.6,18.46,30.98,241.78
-SUC-125,Guayaquil,Vestuario,Tienda física,50.2,40.01,23.21,205.28
-SUC-126,Cuenca,Hogar,Online,71.1,103.13,31.91,242.82
-SUC-127,Manta,Tecnología,Tienda física,41.0,303.21,24.11,157.78
-SUC-128,Quito,Alimentos,Tienda física,47.7,24.28,17.56,147.3
-SUC-129,Guayaquil,Tecnología,Mixto,56.1,278.81,22.14,225.35
-SUC-130,Loja,Hogar,Mixto,49.6,86.87,23.36,167.51
-SUC-131,Cuenca,Alimentos,Online,64.8,21.05,29.08,243.31
-SUC-132,Manta,Tecnología,Mixto,21.9,288.08,14.56,111.62
-SUC-133,Guayaquil,Hogar,Tienda física,60.1,128.09,30.18,210.66
-SUC-134,Loja,Vestuario,Mixto,46.0,45.05,33.92,204.98
-SUC-135,Cuenca,Hogar,Tienda física,40.1,87.83,20.6,133.52
-SUC-136,Guayaquil,Tecnología,Mixto,43.6,361.01,26.07,180.02
-SUC-137,Manta,Tecnología,Tienda física,45.4,304.9,20.34,142.71
-SUC-138,Manta,Alimentos,Online,48.6,18.67,20.47,154.54
-SUC-139,Loja,Tecnología,Tienda física,50.2,225.68,24.65,155.82
-SUC-140,Guayaquil,Alimentos,Online,86.5,23.2,31.83,285.06
-SUC-141,Manta,Tecnología,Online,21.5,266.85,18.52,103.95
-SUC-142,Cuenca,Vestuario,Online,32.4,76.66,20.16,132.47
-SUC-143,Loja,Alimentos,Online,69.9,24.81,30.87,216.97
-SUC-144,Guayaquil,Hogar,Mixto,46.3,105.14,23.73,170.07
-SUC-145,Quito,Vestuario,Mixto,40.2,59.71,12.21,165.68
-SUC-146,Cuenca,Hogar,Tienda física,49.0,98.64,25.77,174.39
-SUC-147,Cuenca,Hogar,Tienda física,51.0,86.06,24.66,194.31
-SUC-148,Guayaquil,Vestuario,Mixto,38.0,50.29,13.26,136.44
-SUC-149,Loja,Hogar,Tienda física,34.4,89.21,15.43,125.35
-SUC-150,Cuenca,Vestuario,Tienda física,35.2,59.15,25.88,154.8
+SUC-092,Quito,Alimentos,Online,56.1,17.12,28.22,241.93
+SUC-093,Cuenca,Alimentos,Online,31.8,19.14,15.44,120.48
+SUC-094,Manta,Tecnología,Tienda física,57.3,473.94,19.76,179.87
+SUC-095,Guayaquil,Alimentos,Mixto,31.5,18.85,22.9,161.88
+SUC-096,Loja,Hogar,Tienda física,49.4,81.19,31.54,191.15
+SUC-097,Cuenca,Hogar,Mixto,39.7,80.85,18.55,158.19
+SUC-098,Loja,Hogar,Mixto,45.0,101.55,25.7,173.96
+SUC-099,Loja,Vestuario,Tienda física,33.9,63.7,20.98,137.68
+SUC-100,Cuenca,Hogar,Tienda física,50.3,95.63,27.7,198.12
+SUC-101,Manta,Vestuario,Online,60.4,67.07,23.93,187.65
+SUC-102,Loja,Tecnología,Tienda física,49.8,346.71,24.3,173.57
+SUC-103,Guayaquil,Vestuario,Online,39.7,46.5,17.6,162.38
+SUC-104,Quito,Alimentos,Mixto,24.5,23.25,18.18,147.28
+SUC-105,Quito,Tecnología,Online,50.0,301.86,29.49,244.2
+SUC-106,Loja,Alimentos,Tienda física,45.0,31.75,21.65,136.87
+SUC-107,Loja,Hogar,Online,45.5,88.93,23.77,156.0
+SUC-108,Guayaquil,Vestuario,Mixto,52.1,53.92,25.94,197.46
+SUC-109,Loja,Vestuario,Tienda física,32.5,44.86,22.55,137.7
+SUC-110,Loja,Vestuario,Tienda física,49.8,54.76,21.34,155.56
+SUC-111,Cuenca,Hogar,Tienda física,58.8,88.22,26.41,196.07
+SUC-112,Cuenca,Hogar,Mixto,35.4,93.37,20.96,143.77
+SUC-113,Quito,Vestuario,Mixto,46.1,45.5,20.71,174.51
+SUC-114,Guayaquil,Alimentos,Mixto,46.1,22.25,28.03,189.83
+SUC-115,Manta,Hogar,Mixto,57.4,89.8,25.62,198.47
+SUC-116,Loja,Vestuario,Tienda física,53.7,57.34,24.17,200.58
+SUC-117,Quito,Tecnología,Tienda física,67.4,219.89,28.91,217.84
+SUC-118,Loja,Alimentos,Tienda física,66.1,27.0,26.31,213.09
+SUC-119,Loja,Hogar,Tienda física,31.3,111.51,11.39,93.03
+SUC-120,Cuenca,Alimentos,Tienda física,39.3,20.88,18.22,149.37
+SUC-121,Manta,Tecnología,Tienda física,28.1,319.26,14.78,108.85
+SUC-122,Manta,Alimentos,Online,53.4,18.89,29.77,172.53
+SUC-123,Quito,Alimentos,Tienda física,21.4,15.34,14.48,102.7
+SUC-124,Manta,Alimentos,Online,30.7,26.03,15.88,129.68
+SUC-125,Guayaquil,Vestuario,Tienda física,59.0,56.64,21.15,189.23
+SUC-126,Cuenca,Hogar,Online,73.4,123.95,33.25,254.75
+SUC-127,Manta,Tecnología,Tienda física,44.8,301.44,21.72,160.7
+SUC-128,Quito,Alimentos,Tienda física,53.2,21.41,29.1,179.77
+SUC-129,Guayaquil,Tecnología,Mixto,29.1,357.37,15.23,118.29
+SUC-130,Loja,Hogar,Mixto,73.3,100.07,29.27,237.23
+SUC-131,Cuenca,Alimentos,Online,31.0,25.58,18.85,136.39
+SUC-132,Manta,Tecnología,Mixto,65.9,230.53,26.94,216.7
+SUC-133,Guayaquil,Hogar,Tienda física,52.5,111.7,33.05,216.71
+SUC-134,Loja,Vestuario,Mixto,39.8,53.99,17.57,182.39
+SUC-135,Cuenca,Hogar,Tienda física,53.0,89.4,23.41,176.29
+SUC-136,Guayaquil,Tecnología,Mixto,29.9,310.96,21.46,159.72
+SUC-137,Manta,Tecnología,Tienda física,39.8,317.61,20.34,131.16
+SUC-138,Manta,Alimentos,Online,36.3,21.64,17.8,128.77
+SUC-139,Loja,Tecnología,Tienda física,27.5,335.74,10.87,91.42
+SUC-140,Guayaquil,Alimentos,Online,30.7,30.88,21.15,136.56
+SUC-141,Manta,Tecnología,Online,49.3,229.06,20.41,177.61
+SUC-142,Cuenca,Vestuario,Online,38.8,45.47,30.93,182.33
+SUC-143,Loja,Alimentos,Online,36.0,26.84,24.53,154.31
+SUC-144,Guayaquil,Hogar,Mixto,26.4,96.36,19.64,141.07
+SUC-145,Quito,Vestuario,Mixto,25.1,50.38,19.5,106.12
+SUC-146,Cuenca,Hogar,Tienda física,65.9,99.39,29.91,224.65
+SUC-147,Cuenca,Hogar,Tienda física,43.1,101.59,20.01,151.41
+SUC-148,Guayaquil,Vestuario,Mixto,64.3,48.96,27.18,207.61
+SUC-149,Loja,Hogar,Tienda física,32.5,83.01,17.6,105.63
+SUC-150,Cuenca,Vestuario,Tienda física,54.1,47.23,27.96,211.33

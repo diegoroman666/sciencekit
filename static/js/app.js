@@ -42,6 +42,7 @@ const state = {
   view: "datos",
   model: null,
   profile: null,
+  profileChart: null,
 };
 
 let pyodide = null;
@@ -771,6 +772,8 @@ function renderProbability() {
 
   const p = result.profile;
   state.profile = p;
+  // Kept so a cleared query can put the plain curve back, unshaded.
+  state.profileChart = result.chart;
 
   const stats = [
     ["Media", "μ", num(p.mu, 4)],
@@ -883,6 +886,16 @@ function syncProbInputs() {
   const kind = $("#prob-kind").value;
   const needsB = kind === "between" || kind === "outside";
   $("#prob-b-wrap").classList.toggle("hidden", !needsB);
+
+  // Drop the previous answer: it belongs to the query that was just replaced,
+  // and leaving it on screen next to the new controls reads as if it were the
+  // result of them. The curve goes back to its unshaded state for the same
+  // reason — a shaded region with no number beside it is a claim about a query
+  // nobody made.
+  const previous = $("#prob-result");
+  if (previous) previous.innerHTML = "";
+  const chart = $("#prob-chart");
+  if (chart && state.profileChart) chart.innerHTML = state.profileChart;
 }
 
 function computeProbability() {

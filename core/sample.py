@@ -331,46 +331,46 @@ EST-026,Enfermería,Vespertina,Sí,13.2,82.1,1.9,79.6
 EST-027,Ingeniería,Vespertina,Sí,11.0,89.0,4.2,69.2
 EST-028,Enfermería,Diurna,No,7.3,71.9,3.8,48.3
 EST-029,Biología,Diurna,No,9.4,81.5,5.4,59.2
-EST-030,Ingeniería,Vespertina,No,12.3,100.0,5.2,72.4
-EST-031,Economía,Vespertina,Sí,11.3,90.6,3.3,68.8
-EST-032,Economía,Diurna,No,15.3,92.4,3.2,70.2
-EST-033,Enfermería,Vespertina,Sí,11.2,85.9,3.6,64.7
-EST-034,Ingeniería,Diurna,No,10.6,94.9,0.6,64.9
-EST-035,Economía,Diurna,Sí,12.6,90.2,0.7,69.1
-EST-036,Biología,Diurna,No,13.7,77.3,6.2,70.3
-EST-037,Biología,Vespertina,No,6.3,89.4,3.3,49.8
-EST-038,Ingeniería,Diurna,No,5.5,86.3,3.5,49.9
-EST-039,Economía,Vespertina,No,11.8,74.1,5.7,52.4
-EST-040,Ingeniería,Diurna,Sí,6.4,76.3,3.6,55.7
-EST-041,Ingeniería,Diurna,No,7.0,71.6,5.1,49.1
-EST-042,Ingeniería,Vespertina,Sí,9.1,81.5,3.9,62.8
-EST-043,Ingeniería,Diurna,Sí,4.6,86.1,6.5,55.0
-EST-044,Economía,Diurna,No,10.9,91.9,3.7,74.0
-EST-045,Ingeniería,Diurna,No,19.0,81.1,3.6,73.9
-EST-046,Ingeniería,Diurna,No,17.6,79.8,3.1,70.5
-EST-047,Economía,Vespertina,No,7.9,80.5,3.9,54.1
-EST-048,Biología,Diurna,Sí,22.4,88.3,5.7,77.6
+EST-030,Ingeniería,Vespertina,No,12.3,91.4,5.5,58.6
+EST-031,Ingeniería,Diurna,No,13.1,69.5,5.9,44.8
+EST-032,Economía,Diurna,No,13.1,88.1,5.4,60.7
+EST-033,Enfermería,Vespertina,Sí,6.5,87.9,4.5,57.4
+EST-034,Ingeniería,Diurna,No,10.4,77.3,5.7,40.0
+EST-035,Economía,Diurna,Sí,9.2,82.0,5.1,45.5
+EST-036,Biología,Diurna,No,8.1,84.4,3.4,66.8
+EST-037,Biología,Vespertina,No,17.4,76.7,5.0,64.7
+EST-038,Ingeniería,Diurna,No,6.1,65.8,4.6,41.6
+EST-039,Economía,Vespertina,No,6.1,89.2,3.0,63.7
+EST-040,Ingeniería,Diurna,Sí,9.7,67.8,3.3,53.8
+EST-041,Ingeniería,Diurna,No,14.8,69.1,2.7,66.6
+EST-042,Ingeniería,Vespertina,Sí,10.5,83.0,4.0,61.2
+EST-043,Ingeniería,Diurna,Sí,15.7,63.7,4.6,71.3
+EST-044,Economía,Diurna,No,17.1,78.1,5.3,65.1
+EST-045,Ingeniería,Diurna,No,20.5,96.6,3.9,78.6
+EST-046,Ingeniería,Diurna,No,13.9,93.4,3.8,65.0
+EST-047,Economía,Vespertina,No,8.7,80.3,3.9,55.4
+EST-048,Biología,Diurna,Sí,11.9,88.3,5.7,60.6
 EST-049,Enfermería,Diurna,No,11.5,85.7,2.9,68.3
 EST-050,Biología,Vespertina,Sí,9.0,67.6,3.4,56.6
 EST-051,Enfermería,Vespertina,No,9.0,66.9,5.0,54.5
 EST-052,Biología,Diurna,No,15.5,98.1,3.2,75.9
 EST-053,Ingeniería,Vespertina,No,5.0,94.5,3.3,59.5
 EST-054,Biología,Diurna,No,8.3,76.2,4.3,50.8
-EST-055,Ingeniería,Vespertina,Sí,5.6,100.0,3.9,57.9
-EST-056,Biología,Diurna,Sí,9.0,97.7,4.9,59.7
-EST-057,Economía,Vespertina,No,10.5,80.8,5.0,62.0
-EST-058,Ingeniería,Diurna,No,16.5,76.2,6.4,66.0
-EST-059,Economía,Vespertina,No,5.5,81.2,3.8,62.2
-EST-060,Economía,Diurna,No,11.2,78.2,4.0,66.8
-EST-061,Biología,Vespertina,No,4.2,80.5,1.7,44.9
-EST-062,Ingeniería,Diurna,No,7.1,98.0,3.7,69.2
-EST-063,Biología,Diurna,No,17.4,94.3,4.1,90.0
-EST-064,Economía,Vespertina,Sí,10.4,95.2,2.3,76.8
-EST-065,Biología,Vespertina,No,13.3,62.9,3.5,50.4
-EST-066,Enfermería,Vespertina,No,7.8,100.0,2.9,67.6
-EST-067,Biología,Diurna,Sí,8.2,91.9,2.4,69.0
-EST-068,Biología,Vespertina,Sí,11.2,78.1,4.9,66.3
-EST-069,Ingeniería,Diurna,Sí,20.7,82.0,3.5,82.1
+EST-055,Ingeniería,Vespertina,Sí,5.6,80.7,3.3,56.6
+EST-056,Enfermería,Diurna,No,14.8,89.0,2.5,73.4
+EST-057,Biología,Diurna,Sí,25.4,83.0,4.8,78.5
+EST-058,Biología,Diurna,Sí,22.9,83.6,3.1,77.9
+EST-059,Economía,Vespertina,No,7.6,84.9,4.0,50.1
+EST-060,Biología,Diurna,Sí,16.2,67.5,5.8,58.4
+EST-061,Economía,Vespertina,No,11.0,82.1,3.9,61.2
+EST-062,Enfermería,Vespertina,Sí,8.1,83.4,3.3,58.8
+EST-063,Economía,Vespertina,Sí,10.1,84.0,3.8,65.3
+EST-064,Enfermería,Diurna,No,18.4,65.0,3.3,67.3
+EST-065,Ingeniería,Vespertina,No,14.7,65.1,3.3,54.4
+EST-066,Enfermería,Vespertina,No,3.8,85.8,4.1,49.6
+EST-067,Biología,Diurna,Sí,15.2,76.3,6.4,64.6
+EST-068,Biología,Diurna,No,18.1,82.2,6.9,86.2
+EST-069,Economía,Diurna,No,11.6,81.6,3.2,55.7
 EST-070,Biología,Vespertina,Sí,5.3,83.2,4.7,52.5
 EST-071,Economía,Diurna,No,16.3,85.1,5.4,69.7
 EST-072,Economía,Vespertina,No,13.6,90.7,4.3,71.7
@@ -380,23 +380,23 @@ EST-075,Ingeniería,Diurna,No,8.4,79.7,4.3,55.3
 EST-076,Enfermería,Diurna,No,18.5,96.1,5.2,84.0
 EST-077,Ingeniería,Vespertina,Sí,9.5,95.0,6.7,51.9
 EST-078,Enfermería,Vespertina,No,16.4,86.6,6.9,70.5
-EST-079,Ingeniería,Vespertina,No,1.5,100.0,4.2,62.8
-EST-080,Enfermería,Diurna,Sí,7.5,77.2,1.2,59.5
-EST-081,Economía,Diurna,Sí,6.0,95.8,4.9,61.3
-EST-082,Economía,Vespertina,No,5.7,84.1,3.9,54.2
-EST-083,Biología,Vespertina,No,6.4,71.1,1.9,49.4
-EST-084,Biología,Diurna,No,6.8,61.6,4.0,47.2
-EST-085,Biología,Diurna,No,12.6,95.2,6.1,73.0
-EST-086,Ingeniería,Diurna,No,15.0,100.0,4.0,73.9
-EST-087,Biología,Diurna,No,13.1,76.4,5.5,62.4
-EST-088,Ingeniería,Diurna,Sí,18.2,85.8,4.4,73.1
-EST-089,Enfermería,Diurna,No,5.7,89.7,5.5,55.3
-EST-090,Biología,Diurna,No,14.8,94.5,3.2,69.6
-EST-091,Enfermería,Diurna,No,11.8,88.5,3.6,64.2
-EST-092,Economía,Vespertina,Sí,8.3,93.3,4.7,65.6
-EST-093,Economía,Diurna,No,10.7,90.4,4.8,53.4
-EST-094,Enfermería,Diurna,Sí,10.2,76.9,4.8,57.9
-EST-095,Ingeniería,Diurna,No,24.2,95.7,6.8,84.8
+EST-079,Ingeniería,Vespertina,No,18.4,83.0,7.1,51.5
+EST-080,Enfermería,Diurna,Sí,12.1,70.4,3.4,51.6
+EST-081,Economía,Diurna,Sí,10.8,66.9,5.8,57.9
+EST-082,Economía,Vespertina,No,10.2,75.2,4.3,55.3
+EST-083,Biología,Vespertina,No,9.8,77.0,2.6,50.6
+EST-084,Biología,Diurna,No,10.0,68.6,1.4,58.0
+EST-085,Biología,Diurna,No,13.6,81.9,5.7,70.8
+EST-086,Ingeniería,Diurna,No,19.0,87.5,7.7,68.5
+EST-087,Biología,Diurna,No,13.5,83.2,3.3,72.3
+EST-088,Ingeniería,Diurna,Sí,14.8,94.8,4.5,74.3
+EST-089,Enfermería,Diurna,No,11.2,66.2,5.0,60.1
+EST-090,Biología,Diurna,No,13.8,86.9,5.7,61.5
+EST-091,Enfermería,Diurna,No,9.4,80.0,4.9,55.1
+EST-092,Economía,Vespertina,Sí,6.8,81.2,5.5,56.7
+EST-093,Economía,Diurna,No,15.2,77.7,5.1,66.8
+EST-094,Enfermería,Diurna,Sí,5.3,76.6,3.4,57.4
+EST-095,Ingeniería,Diurna,No,10.6,95.7,6.8,62.8
 EST-096,Economía,Vespertina,No,7.8,83.6,6.3,52.5
 EST-097,Biología,Vespertina,No,9.9,86.6,3.0,57.6
 EST-098,Ingeniería,Diurna,Sí,17.5,73.8,2.6,75.8
@@ -408,25 +408,25 @@ EST-103,Enfermería,Diurna,Sí,13.6,82.4,4.0,72.6
 EST-104,Biología,Diurna,Sí,14.6,81.1,4.3,65.7
 EST-105,Biología,Diurna,Sí,16.3,83.8,3.2,81.4
 EST-106,Biología,Vespertina,Sí,10.3,78.3,6.9,62.0
-EST-107,Biología,Diurna,No,16.7,100.0,6.4,76.7
-EST-108,Economía,Diurna,No,8.9,80.6,2.5,56.7
+EST-107,Biología,Diurna,No,16.7,87.9,4.2,72.1
+EST-108,Enfermería,Vespertina,Sí,5.2,72.6,1.7,58.6
 EST-109,Economía,Diurna,Sí,16.2,87.3,4.6,76.4
 EST-110,Biología,Diurna,No,7.6,94.2,8.0,48.3
 EST-111,Biología,Vespertina,No,11.8,85.8,1.6,74.0
-EST-112,Biología,Diurna,Sí,1.5,57.8,3.1,41.8
-EST-113,Ingeniería,Diurna,No,7.5,68.9,4.2,50.3
-EST-114,Ingeniería,Vespertina,No,12.3,70.3,3.1,66.2
-EST-115,Enfermería,Diurna,No,14.5,79.0,5.9,56.8
-EST-116,Biología,Vespertina,No,8.9,73.3,5.2,54.7
-EST-117,Enfermería,Diurna,Sí,14.4,86.3,4.8,73.8
-EST-118,Enfermería,Diurna,No,15.6,61.1,2.3,58.7
-EST-119,Ingeniería,Vespertina,Sí,9.3,97.3,6.7,63.2
-EST-120,Economía,Vespertina,Sí,14.4,82.7,4.6,67.0
-EST-121,Ingeniería,Vespertina,No,10.1,86.5,4.0,60.5
-EST-122,Enfermería,Diurna,No,13.5,85.1,2.3,64.9
-EST-123,Enfermería,Vespertina,No,16.0,73.0,1.5,64.7
-EST-124,Enfermería,Vespertina,No,9.9,75.6,4.3,55.9
-EST-125,Ingeniería,Diurna,No,23.0,69.4,3.3,80.0
+EST-112,Biología,Diurna,Sí,2.0,74.3,4.4,51.1
+EST-113,Economía,Diurna,No,17.0,83.5,4.6,72.3
+EST-114,Economía,Vespertina,No,10.3,74.8,6.1,51.6
+EST-115,Ingeniería,Vespertina,Sí,11.6,96.3,2.4,72.7
+EST-116,Biología,Diurna,Sí,16.8,85.5,6.4,70.6
+EST-117,Biología,Diurna,No,12.6,86.3,3.4,66.3
+EST-118,Economía,Vespertina,No,4.6,68.7,2.8,53.0
+EST-119,Economía,Diurna,No,15.9,72.8,4.5,67.6
+EST-120,Enfermería,Diurna,Sí,10.8,86.7,1.3,73.6
+EST-121,Biología,Vespertina,Sí,9.9,80.1,6.7,63.6
+EST-122,Enfermería,Diurna,No,7.9,83.9,4.4,49.9
+EST-123,Enfermería,Vespertina,No,4.5,98.8,2.9,49.6
+EST-124,Enfermería,Vespertina,No,4.0,84.8,3.2,53.8
+EST-125,Ingeniería,Diurna,No,11.7,69.4,3.3,61.7
 EST-126,Economía,Diurna,No,12.5,92.5,6.4,73.5
 EST-127,Economía,Diurna,No,14.5,74.1,5.7,63.1
 EST-128,Economía,Diurna,Sí,12.2,80.0,5.7,71.9
@@ -556,218 +556,218 @@ SUC-088,Cuenca,Alimentos,Tienda física,37.0,21.36,20.87,155.22
 SUC-089,Cuenca,Tecnología,Tienda física,40.3,290.54,21.09,135.81
 SUC-090,Manta,Alimentos,Online,31.9,20.08,19.49,135.37
 SUC-091,Guayaquil,Tecnología,Online,56.5,353.99,22.34,211.64
-SUC-092,Quito,Alimentos,Online,4.0,23.45,6.38,66.09
-SUC-093,Cuenca,Alimentos,Online,38.4,17.76,18.19,158.77
-SUC-094,Manta,Tecnología,Tienda física,87.4,225.02,38.49,264.04
-SUC-095,Guayaquil,Alimentos,Mixto,37.2,24.56,21.71,169.7
-SUC-096,Loja,Hogar,Tienda física,32.7,125.72,21.07,122.28
-SUC-097,Cuenca,Hogar,Mixto,32.4,84.22,19.89,144.03
-SUC-098,Loja,Hogar,Mixto,51.0,107.12,23.88,173.74
-SUC-099,Loja,Vestuario,Tienda física,61.5,57.02,30.14,209.84
-SUC-100,Cuenca,Hogar,Tienda física,45.7,108.8,27.59,187.2
-SUC-101,Manta,Vestuario,Online,66.8,45.45,25.32,220.52
-SUC-102,Loja,Tecnología,Tienda física,53.2,318.04,27.8,175.73
-SUC-103,Guayaquil,Vestuario,Online,34.0,45.17,21.3,136.12
-SUC-104,Quito,Alimentos,Mixto,55.2,22.2,30.75,225.16
-SUC-105,Quito,Tecnología,Online,41.1,388.46,35.37,195.24
-SUC-106,Loja,Alimentos,Tienda física,90.1,19.79,31.12,264.18
-SUC-107,Loja,Hogar,Online,39.7,98.57,17.36,147.83
-SUC-108,Guayaquil,Vestuario,Mixto,45.9,55.87,20.8,169.46
-SUC-109,Loja,Vestuario,Tienda física,31.4,61.65,20.75,128.56
-SUC-110,Loja,Vestuario,Tienda física,47.2,46.83,21.47,169.05
-SUC-111,Cuenca,Hogar,Tienda física,39.0,93.02,20.7,136.32
-SUC-112,Cuenca,Hogar,Mixto,43.6,99.46,19.66,166.15
-SUC-113,Quito,Vestuario,Mixto,32.5,47.94,17.54,146.1
-SUC-114,Guayaquil,Alimentos,Mixto,51.1,25.23,21.98,204.45
-SUC-115,Manta,Hogar,Mixto,40.4,91.48,20.04,164.02
-SUC-116,Loja,Vestuario,Tienda física,51.3,50.68,32.28,209.96
-SUC-117,Quito,Tecnología,Tienda física,19.1,308.85,13.09,109.82
-SUC-118,Loja,Alimentos,Tienda física,70.6,18.28,32.76,217.64
-SUC-119,Loja,Hogar,Tienda física,59.9,65.13,24.53,183.85
-SUC-120,Cuenca,Alimentos,Tienda física,45.5,18.24,25.69,155.29
-SUC-121,Manta,Tecnología,Tienda física,45.8,276.84,24.69,168.99
-SUC-122,Manta,Alimentos,Online,37.3,24.82,11.56,106.14
-SUC-123,Quito,Alimentos,Tienda física,22.8,19.7,16.07,96.69
-SUC-124,Manta,Alimentos,Online,66.6,18.46,30.98,241.78
-SUC-125,Guayaquil,Vestuario,Tienda física,50.2,40.01,23.21,205.28
-SUC-126,Cuenca,Hogar,Online,71.1,103.13,31.91,242.82
-SUC-127,Manta,Tecnología,Tienda física,41.0,303.21,24.11,157.78
-SUC-128,Quito,Alimentos,Tienda física,47.7,24.28,17.56,147.3
-SUC-129,Guayaquil,Tecnología,Mixto,56.1,278.81,22.14,225.35
-SUC-130,Loja,Hogar,Mixto,49.6,86.87,23.36,167.51
-SUC-131,Cuenca,Alimentos,Online,64.8,21.05,29.08,243.31
-SUC-132,Manta,Tecnología,Mixto,21.9,288.08,14.56,111.62
-SUC-133,Guayaquil,Hogar,Tienda física,60.1,128.09,30.18,210.66
-SUC-134,Loja,Vestuario,Mixto,46.0,45.05,33.92,204.98
-SUC-135,Cuenca,Hogar,Tienda física,40.1,87.83,20.6,133.52
-SUC-136,Guayaquil,Tecnología,Mixto,43.6,361.01,26.07,180.02
-SUC-137,Manta,Tecnología,Tienda física,45.4,304.9,20.34,142.71
-SUC-138,Manta,Alimentos,Online,48.6,18.67,20.47,154.54
-SUC-139,Loja,Tecnología,Tienda física,50.2,225.68,24.65,155.82
-SUC-140,Guayaquil,Alimentos,Online,86.5,23.2,31.83,285.06
-SUC-141,Manta,Tecnología,Online,21.5,266.85,18.52,103.95
-SUC-142,Cuenca,Vestuario,Online,32.4,76.66,20.16,132.47
-SUC-143,Loja,Alimentos,Online,69.9,24.81,30.87,216.97
-SUC-144,Guayaquil,Hogar,Mixto,46.3,105.14,23.73,170.07
-SUC-145,Quito,Vestuario,Mixto,40.2,59.71,12.21,165.68
-SUC-146,Cuenca,Hogar,Tienda física,49.0,98.64,25.77,174.39
-SUC-147,Cuenca,Hogar,Tienda física,51.0,86.06,24.66,194.31
-SUC-148,Guayaquil,Vestuario,Mixto,38.0,50.29,13.26,136.44
-SUC-149,Loja,Hogar,Tienda física,34.4,89.21,15.43,125.35
-SUC-150,Cuenca,Vestuario,Tienda física,35.2,59.15,25.88,154.8
+SUC-092,Quito,Alimentos,Online,56.1,17.12,28.22,241.93
+SUC-093,Cuenca,Alimentos,Online,31.8,19.14,15.44,120.48
+SUC-094,Manta,Tecnología,Tienda física,57.3,473.94,19.76,179.87
+SUC-095,Guayaquil,Alimentos,Mixto,31.5,18.85,22.9,161.88
+SUC-096,Loja,Hogar,Tienda física,49.4,81.19,31.54,191.15
+SUC-097,Cuenca,Hogar,Mixto,39.7,80.85,18.55,158.19
+SUC-098,Loja,Hogar,Mixto,45.0,101.55,25.7,173.96
+SUC-099,Loja,Vestuario,Tienda física,33.9,63.7,20.98,137.68
+SUC-100,Cuenca,Hogar,Tienda física,50.3,95.63,27.7,198.12
+SUC-101,Manta,Vestuario,Online,60.4,67.07,23.93,187.65
+SUC-102,Loja,Tecnología,Tienda física,49.8,346.71,24.3,173.57
+SUC-103,Guayaquil,Vestuario,Online,39.7,46.5,17.6,162.38
+SUC-104,Quito,Alimentos,Mixto,24.5,23.25,18.18,147.28
+SUC-105,Quito,Tecnología,Online,50.0,301.86,29.49,244.2
+SUC-106,Loja,Alimentos,Tienda física,45.0,31.75,21.65,136.87
+SUC-107,Loja,Hogar,Online,45.5,88.93,23.77,156.0
+SUC-108,Guayaquil,Vestuario,Mixto,52.1,53.92,25.94,197.46
+SUC-109,Loja,Vestuario,Tienda física,32.5,44.86,22.55,137.7
+SUC-110,Loja,Vestuario,Tienda física,49.8,54.76,21.34,155.56
+SUC-111,Cuenca,Hogar,Tienda física,58.8,88.22,26.41,196.07
+SUC-112,Cuenca,Hogar,Mixto,35.4,93.37,20.96,143.77
+SUC-113,Quito,Vestuario,Mixto,46.1,45.5,20.71,174.51
+SUC-114,Guayaquil,Alimentos,Mixto,46.1,22.25,28.03,189.83
+SUC-115,Manta,Hogar,Mixto,57.4,89.8,25.62,198.47
+SUC-116,Loja,Vestuario,Tienda física,53.7,57.34,24.17,200.58
+SUC-117,Quito,Tecnología,Tienda física,67.4,219.89,28.91,217.84
+SUC-118,Loja,Alimentos,Tienda física,66.1,27.0,26.31,213.09
+SUC-119,Loja,Hogar,Tienda física,31.3,111.51,11.39,93.03
+SUC-120,Cuenca,Alimentos,Tienda física,39.3,20.88,18.22,149.37
+SUC-121,Manta,Tecnología,Tienda física,28.1,319.26,14.78,108.85
+SUC-122,Manta,Alimentos,Online,53.4,18.89,29.77,172.53
+SUC-123,Quito,Alimentos,Tienda física,21.4,15.34,14.48,102.7
+SUC-124,Manta,Alimentos,Online,30.7,26.03,15.88,129.68
+SUC-125,Guayaquil,Vestuario,Tienda física,59.0,56.64,21.15,189.23
+SUC-126,Cuenca,Hogar,Online,73.4,123.95,33.25,254.75
+SUC-127,Manta,Tecnología,Tienda física,44.8,301.44,21.72,160.7
+SUC-128,Quito,Alimentos,Tienda física,53.2,21.41,29.1,179.77
+SUC-129,Guayaquil,Tecnología,Mixto,29.1,357.37,15.23,118.29
+SUC-130,Loja,Hogar,Mixto,73.3,100.07,29.27,237.23
+SUC-131,Cuenca,Alimentos,Online,31.0,25.58,18.85,136.39
+SUC-132,Manta,Tecnología,Mixto,65.9,230.53,26.94,216.7
+SUC-133,Guayaquil,Hogar,Tienda física,52.5,111.7,33.05,216.71
+SUC-134,Loja,Vestuario,Mixto,39.8,53.99,17.57,182.39
+SUC-135,Cuenca,Hogar,Tienda física,53.0,89.4,23.41,176.29
+SUC-136,Guayaquil,Tecnología,Mixto,29.9,310.96,21.46,159.72
+SUC-137,Manta,Tecnología,Tienda física,39.8,317.61,20.34,131.16
+SUC-138,Manta,Alimentos,Online,36.3,21.64,17.8,128.77
+SUC-139,Loja,Tecnología,Tienda física,27.5,335.74,10.87,91.42
+SUC-140,Guayaquil,Alimentos,Online,30.7,30.88,21.15,136.56
+SUC-141,Manta,Tecnología,Online,49.3,229.06,20.41,177.61
+SUC-142,Cuenca,Vestuario,Online,38.8,45.47,30.93,182.33
+SUC-143,Loja,Alimentos,Online,36.0,26.84,24.53,154.31
+SUC-144,Guayaquil,Hogar,Mixto,26.4,96.36,19.64,141.07
+SUC-145,Quito,Vestuario,Mixto,25.1,50.38,19.5,106.12
+SUC-146,Cuenca,Hogar,Tienda física,65.9,99.39,29.91,224.65
+SUC-147,Cuenca,Hogar,Tienda física,43.1,101.59,20.01,151.41
+SUC-148,Guayaquil,Vestuario,Mixto,64.3,48.96,27.18,207.61
+SUC-149,Loja,Hogar,Tienda física,32.5,83.01,17.6,105.63
+SUC-150,Cuenca,Vestuario,Tienda física,54.1,47.23,27.96,211.33
 '''
 
 AIRE_CSV = '''Registro,Ciudad,Zona,Estacion_del_ano,Trafico_veh_hora,Temp_media_C,Humedad_pct,Viento_km_h,PM25_ug_m3
-AIR-001,Quito,Industrial,Invierno,2182,9.9,56.4,6.4,46.1
-AIR-002,Cuenca,Céntrica,Verano,1022,20.5,70.0,7.6,14.2
-AIR-003,Guayaquil,Céntrica,Verano,1606,28.4,72.1,5.0,25.6
-AIR-004,Quito,Periurbana,Otoño,810,17.4,78.8,6.4,5.5
-AIR-005,Cuenca,Céntrica,Invierno,2074,12.6,65.1,2.6,39.9
-AIR-006,Guayaquil,Residencial,Primavera,670,18.0,68.0,8.6,4.0
-AIR-007,Cuenca,Residencial,Invierno,225,16.4,59.0,7.5,4.5
-AIR-008,Loja,Residencial,Invierno,899,11.3,76.1,14.1,9.1
-AIR-009,Manta,Residencial,Primavera,1393,17.8,80.1,0.6,24.5
-AIR-010,Loja,Residencial,Otoño,1067,17.4,78.3,19.8,4.1
-AIR-011,Cuenca,Residencial,Otoño,1177,16.3,70.9,9.6,17.0
-AIR-012,Manta,Industrial,Verano,1964,23.8,70.7,10.3,27.7
-AIR-013,Guayaquil,Industrial,Primavera,1178,11.5,51.3,20.6,5.8
-AIR-014,Loja,Residencial,Verano,912,23.8,79.1,13.1,1.4
-AIR-015,Manta,Periurbana,Verano,520,23.7,82.1,14.3,1.4
-AIR-016,Cuenca,Céntrica,Invierno,1259,16.3,78.9,13.6,16.5
-AIR-017,Loja,Periurbana,Primavera,423,17.0,66.2,10.7,1.4
-AIR-018,Guayaquil,Residencial,Invierno,684,12.9,81.3,13.6,5.8
-AIR-019,Cuenca,Residencial,Primavera,1074,22.7,50.6,6.0,13.5
-AIR-020,Quito,Céntrica,Otoño,1754,17.8,56.7,4.9,34.8
-AIR-021,Cuenca,Residencial,Primavera,1045,16.8,54.9,13.9,12.1
-AIR-022,Manta,Periurbana,Verano,523,24.1,51.7,20.1,1.4
-AIR-023,Cuenca,Industrial,Verano,1173,28.7,61.1,5.5,20.9
-AIR-024,Loja,Industrial,Invierno,1425,13.5,60.4,5.6,33.9
-AIR-025,Cuenca,Residencial,Verano,906,24.9,69.9,14.7,2.4
-AIR-026,Guayaquil,Industrial,Invierno,937,18.4,54.4,16.0,18.5
-AIR-027,Loja,Residencial,Primavera,492,18.3,81.4,10.0,3.1
-AIR-028,Quito,Residencial,Primavera,486,25.8,50.7,12.7,1.4
-AIR-029,Quito,Residencial,Verano,528,26.9,56.0,12.0,1.4
-AIR-030,Loja,Residencial,Invierno,322,15.0,69.3,14.0,4.9
-AIR-031,Manta,Industrial,Invierno,1357,16.1,72.2,7.3,26.0
-AIR-032,Quito,Residencial,Primavera,478,12.7,63.2,10.5,5.0
-AIR-033,Guayaquil,Residencial,Primavera,640,19.0,82.3,8.5,1.4
-AIR-034,Manta,Céntrica,Invierno,2263,12.8,93.9,12.4,32.7
-AIR-035,Loja,Periurbana,Primavera,90,20.0,57.6,16.6,1.4
-AIR-036,Quito,Residencial,Otoño,761,14.9,41.6,7.2,10.8
-AIR-037,Loja,Residencial,Invierno,820,12.4,59.9,4.0,20.7
-AIR-038,Manta,Periurbana,Verano,407,26.2,73.4,11.6,1.4
-AIR-039,Cuenca,Industrial,Invierno,1767,17.5,51.7,5.5,39.9
-AIR-040,Manta,Periurbana,Primavera,485,19.2,70.7,8.8,2.9
-AIR-041,Cuenca,Periurbana,Invierno,711,15.9,98.0,13.6,1.4
-AIR-042,Guayaquil,Céntrica,Primavera,2008,15.7,65.6,8.0,26.1
-AIR-043,Guayaquil,Residencial,Primavera,1103,19.5,58.3,21.2,1.4
-AIR-044,Manta,Céntrica,Primavera,1641,21.5,64.6,1.8,28.5
-AIR-045,Guayaquil,Periurbana,Invierno,224,14.8,49.1,8.7,2.8
-AIR-046,Guayaquil,Céntrica,Invierno,1624,12.8,74.8,11.6,27.5
-AIR-047,Guayaquil,Céntrica,Primavera,2087,19.5,75.4,4.7,30.9
-AIR-048,Loja,Industrial,Verano,1722,23.0,45.1,9.5,28.6
-AIR-049,Loja,Céntrica,Invierno,1898,14.3,86.2,9.1,28.3
-AIR-050,Manta,Céntrica,Verano,2042,29.8,89.0,14.8,20.9
-AIR-051,Guayaquil,Periurbana,Primavera,637,24.0,88.6,13.6,1.4
-AIR-052,Cuenca,Céntrica,Invierno,2389,13.5,91.8,17.8,28.5
-AIR-053,Manta,Industrial,Verano,900,23.6,76.2,5.9,15.1
-AIR-054,Cuenca,Céntrica,Invierno,1879,13.4,66.2,16.3,20.5
-AIR-055,Cuenca,Céntrica,Invierno,1556,11.9,71.5,13.8,24.6
-AIR-056,Guayaquil,Periurbana,Primavera,671,19.0,74.9,14.5,3.5
-AIR-057,Quito,Residencial,Verano,1003,22.8,75.7,17.0,1.4
-AIR-058,Loja,Céntrica,Invierno,1825,15.9,70.8,15.8,17.5
-AIR-059,Quito,Periurbana,Invierno,1011,17.8,57.1,7.7,14.5
-AIR-060,Quito,Periurbana,Verano,90,26.6,54.8,1.8,5.5
-AIR-061,Quito,Céntrica,Primavera,1925,20.0,59.9,14.7,21.9
-AIR-062,Manta,Industrial,Otoño,1500,17.1,58.4,14.4,23.5
-AIR-063,Guayaquil,Residencial,Otoño,1053,17.8,67.9,8.3,8.8
-AIR-064,Quito,Residencial,Invierno,1194,12.6,64.9,10.1,21.9
-AIR-065,Loja,Periurbana,Otoño,235,20.5,86.0,14.4,1.4
-AIR-066,Guayaquil,Céntrica,Otoño,1379,18.6,74.4,5.9,22.4
-AIR-067,Loja,Periurbana,Primavera,90,19.4,74.4,12.9,1.4
-AIR-068,Cuenca,Periurbana,Invierno,90,14.7,71.9,9.4,3.3
-AIR-069,Loja,Periurbana,Verano,272,22.6,58.1,15.5,1.4
-AIR-070,Guayaquil,Industrial,Primavera,835,24.3,64.0,8.9,20.7
-AIR-071,Manta,Industrial,Invierno,1978,12.2,66.8,10.2,33.7
-AIR-072,Quito,Industrial,Primavera,1642,19.8,58.0,11.8,20.5
-AIR-073,Quito,Periurbana,Verano,465,29.0,51.7,11.5,1.4
-AIR-074,Guayaquil,Residencial,Primavera,781,20.2,48.3,2.3,10.2
-AIR-075,Guayaquil,Residencial,Otoño,1150,21.0,41.6,7.8,12.9
-AIR-076,Cuenca,Periurbana,Otoño,382,20.2,67.2,12.7,1.4
-AIR-077,Loja,Industrial,Otoño,1782,16.5,87.9,10.3,28.1
-AIR-078,Quito,Céntrica,Verano,1826,23.0,66.9,18.7,12.3
-AIR-079,Manta,Periurbana,Primavera,244,21.4,75.3,10.1,1.4
-AIR-080,Loja,Periurbana,Invierno,90,15.3,79.4,8.1,3.5
-AIR-081,Quito,Periurbana,Verano,90,18.4,69.0,16.2,1.4
-AIR-082,Guayaquil,Residencial,Invierno,726,11.7,63.9,6.4,18.3
-AIR-083,Manta,Residencial,Primavera,533,18.1,60.5,8.8,10.9
-AIR-084,Cuenca,Industrial,Primavera,1399,17.5,42.1,8.9,20.3
-AIR-085,Cuenca,Céntrica,Primavera,2141,18.9,54.3,13.2,28.5
-AIR-086,Cuenca,Periurbana,Invierno,258,15.0,82.3,17.0,1.4
-AIR-087,Quito,Industrial,Verano,1316,23.3,68.6,7.2,19.3
-AIR-088,Manta,Periurbana,Invierno,492,16.7,65.7,11.0,10.1
-AIR-089,Quito,Periurbana,Otoño,489,19.2,80.0,13.3,1.4
-AIR-090,Manta,Periurbana,Otoño,552,21.9,54.9,12.8,1.4
-AIR-091,Quito,Residencial,Otoño,1066,19.5,74.5,11.2,6.5
-AIR-092,Quito,Industrial,Primavera,1922,15.1,77.4,3.9,30.2
-AIR-093,Cuenca,Residencial,Verano,415,21.8,70.0,10.9,1.4
-AIR-094,Loja,Periurbana,Verano,773,21.8,78.5,6.5,4.9
-AIR-095,Loja,Céntrica,Invierno,1693,18.8,78.6,8.1,32.5
-AIR-096,Manta,Residencial,Invierno,646,16.0,40.0,14.0,8.1
-AIR-097,Guayaquil,Residencial,Invierno,603,19.6,88.1,18.0,3.7
-AIR-098,Quito,Industrial,Otoño,1760,21.3,82.9,4.2,32.1
-AIR-099,Quito,Industrial,Primavera,1478,19.0,77.6,12.1,23.8
-AIR-100,Quito,Periurbana,Otoño,685,18.8,64.4,8.5,2.0
-AIR-101,Quito,Céntrica,Otoño,1660,17.9,70.9,15.8,18.6
-AIR-102,Cuenca,Industrial,Verano,1321,26.4,58.5,10.1,19.5
-AIR-103,Loja,Céntrica,Otoño,1496,18.2,62.9,10.8,23.7
-AIR-104,Loja,Industrial,Primavera,1356,18.4,78.3,13.6,13.2
-AIR-105,Cuenca,Industrial,Verano,1411,25.8,69.2,13.3,18.6
-AIR-106,Manta,Periurbana,Verano,627,23.0,61.9,13.1,1.4
-AIR-107,Cuenca,Residencial,Invierno,278,14.4,63.2,17.5,1.4
-AIR-108,Loja,Periurbana,Otoño,991,23.1,53.3,19.6,6.3
-AIR-109,Quito,Periurbana,Verano,821,25.0,93.4,6.9,1.4
-AIR-110,Quito,Residencial,Invierno,880,16.8,65.8,13.4,16.0
-AIR-111,Quito,Céntrica,Invierno,1270,13.1,84.6,14.6,15.4
-AIR-112,Manta,Industrial,Primavera,1385,15.1,78.9,11.9,22.5
-AIR-113,Manta,Industrial,Invierno,2099,10.4,57.3,14.8,32.8
-AIR-114,Loja,Periurbana,Primavera,333,22.5,53.4,10.0,1.4
-AIR-115,Guayaquil,Periurbana,Primavera,164,24.1,61.4,5.9,1.4
-AIR-116,Loja,Industrial,Verano,1535,22.6,73.3,8.0,24.8
-AIR-117,Manta,Residencial,Primavera,753,24.5,46.7,16.8,1.4
-AIR-118,Guayaquil,Periurbana,Primavera,90,18.2,56.5,18.3,1.4
-AIR-119,Quito,Periurbana,Invierno,471,12.0,61.6,10.6,9.0
-AIR-120,Manta,Residencial,Verano,708,30.1,73.9,4.7,5.8
-AIR-121,Guayaquil,Residencial,Verano,1081,22.4,76.4,13.4,2.5
-AIR-122,Manta,Céntrica,Primavera,1742,17.3,64.4,11.1,23.0
-AIR-123,Manta,Residencial,Verano,455,25.6,74.3,14.4,1.4
-AIR-124,Cuenca,Céntrica,Verano,1942,24.0,67.2,15.9,19.4
-AIR-125,Manta,Industrial,Invierno,1512,14.1,95.7,19.3,21.5
-AIR-126,Manta,Céntrica,Invierno,1750,13.7,65.6,12.1,29.9
-AIR-127,Cuenca,Industrial,Primavera,2336,19.9,62.7,7.0,37.3
-AIR-128,Quito,Residencial,Primavera,1320,19.0,64.8,0.6,24.7
-AIR-129,Manta,Residencial,Verano,290,27.7,80.6,6.7,1.9
-AIR-130,Loja,Periurbana,Primavera,712,18.8,66.2,13.3,2.7
-AIR-131,Cuenca,Residencial,Invierno,743,12.5,55.9,0.6,23.4
-AIR-132,Cuenca,Residencial,Invierno,863,9.8,83.9,7.2,21.1
-AIR-133,Quito,Periurbana,Verano,677,23.0,70.3,8.0,1.4
-AIR-134,Loja,Periurbana,Primavera,235,24.1,60.1,17.4,1.4
-AIR-135,Quito,Periurbana,Verano,882,22.9,83.9,6.9,6.0
-AIR-136,Manta,Céntrica,Otoño,1717,15.9,65.8,21.2,14.8
-AIR-137,Guayaquil,Céntrica,Verano,1866,25.5,62.5,11.0,22.9
-AIR-138,Manta,Periurbana,Invierno,90,13.7,69.1,15.2,1.4
-AIR-139,Loja,Industrial,Verano,1792,24.7,39.8,2.5,33.6
-AIR-140,Quito,Céntrica,Invierno,1780,15.1,80.9,9.7,28.8
-AIR-141,Guayaquil,Céntrica,Verano,1706,29.6,76.6,14.2,15.4
-AIR-142,Cuenca,Periurbana,Primavera,461,17.9,58.4,13.7,1.4
-AIR-143,Loja,Residencial,Verano,481,24.1,60.4,10.3,1.4
-AIR-144,Loja,Industrial,Primavera,1308,12.4,82.2,5.0,22.6
-AIR-145,Cuenca,Residencial,Invierno,1211,12.9,70.7,23.7,5.1
-AIR-146,Manta,Industrial,Primavera,1320,17.5,85.1,12.4,17.8
-AIR-147,Quito,Céntrica,Verano,1499,21.9,80.3,13.8,16.0
-AIR-148,Cuenca,Residencial,Otoño,605,24.0,72.8,10.8,2.8
-AIR-149,Quito,Céntrica,Otoño,2226,18.0,61.9,8.2,37.1
-AIR-150,Loja,Céntrica,Verano,1415,25.9,53.7,10.1,16.8
+AIR-001,Quito,Industrial,Invierno,2180,9.9,56.4,6.4,65.1
+AIR-002,Cuenca,Céntrica,Verano,874,20.5,70.0,7.6,34.0
+AIR-003,Guayaquil,Céntrica,Verano,1577,28.4,72.1,5.0,45.2
+AIR-004,Quito,Periurbana,Otoño,532,17.4,78.8,6.4,23.5
+AIR-005,Cuenca,Céntrica,Invierno,2140,12.6,65.1,2.6,59.3
+AIR-006,Guayaquil,Residencial,Primavera,721,18.0,68.0,8.6,27.5
+AIR-007,Cuenca,Residencial,Invierno,482,16.4,59.0,7.5,30.5
+AIR-008,Loja,Residencial,Invierno,844,11.3,76.1,14.1,33.0
+AIR-009,Manta,Residencial,Primavera,1108,17.8,80.1,13.6,34.0
+AIR-010,Loja,Residencial,Otoño,674,21.3,90.2,14.3,27.1
+AIR-011,Cuenca,Céntrica,Verano,1223,25.6,72.6,17.4,27.3
+AIR-012,Manta,Industrial,Verano,1366,25.1,64.8,10.9,45.1
+AIR-013,Quito,Periurbana,Verano,239,26.9,67.9,16.1,14.3
+AIR-014,Loja,Residencial,Verano,734,27.0,72.3,7.7,25.5
+AIR-015,Loja,Industrial,Verano,1536,26.9,68.1,16.1,43.8
+AIR-016,Loja,Céntrica,Invierno,1694,16.3,78.9,13.6,46.1
+AIR-017,Loja,Periurbana,Primavera,420,17.0,66.2,10.7,22.9
+AIR-018,Guayaquil,Residencial,Invierno,728,12.9,81.3,13.6,31.2
+AIR-019,Cuenca,Residencial,Primavera,938,22.7,50.6,6.0,32.8
+AIR-020,Quito,Céntrica,Otoño,1755,17.8,56.7,4.9,53.9
+AIR-021,Cuenca,Residencial,Primavera,922,16.8,54.9,13.9,34.1
+AIR-022,Manta,Periurbana,Verano,449,24.1,51.7,20.1,15.1
+AIR-023,Cuenca,Industrial,Verano,1174,28.7,61.1,5.5,41.3
+AIR-024,Loja,Industrial,Invierno,1426,13.5,60.4,5.6,53.8
+AIR-025,Cuenca,Residencial,Verano,847,24.9,69.9,14.7,26.4
+AIR-026,Guayaquil,Industrial,Invierno,939,18.4,54.4,16.0,42.8
+AIR-027,Loja,Residencial,Primavera,625,18.3,81.4,10.0,28.1
+AIR-028,Quito,Residencial,Primavera,622,25.8,50.7,12.7,26.7
+AIR-029,Quito,Residencial,Verano,645,26.9,56.0,12.0,20.7
+AIR-030,Loja,Residencial,Invierno,534,15.0,69.3,14.0,32.3
+AIR-031,Manta,Industrial,Invierno,1358,16.1,72.2,7.3,47.3
+AIR-032,Quito,Residencial,Primavera,618,12.7,63.2,10.5,29.8
+AIR-033,Guayaquil,Residencial,Primavera,705,19.0,82.3,8.5,20.8
+AIR-034,Manta,Céntrica,Invierno,2367,12.8,93.9,12.4,56.7
+AIR-035,Loja,Periurbana,Primavera,262,20.0,57.6,16.6,18.6
+AIR-036,Quito,Residencial,Otoño,770,14.9,41.6,7.2,32.4
+AIR-037,Loja,Residencial,Invierno,801,12.4,59.9,4.0,40.6
+AIR-038,Manta,Periurbana,Verano,416,26.2,73.4,11.6,20.2
+AIR-039,Cuenca,Industrial,Invierno,1766,17.5,51.7,5.5,59.1
+AIR-040,Manta,Periurbana,Primavera,438,19.2,70.7,8.8,24.4
+AIR-041,Cuenca,Periurbana,Invierno,504,15.9,73.5,7.3,32.2
+AIR-042,Guayaquil,Céntrica,Primavera,1042,20.0,58.7,8.9,37.9
+AIR-043,Cuenca,Periurbana,Invierno,484,15.4,46.2,11.5,30.6
+AIR-044,Guayaquil,Periurbana,Invierno,506,16.4,75.0,10.1,27.8
+AIR-045,Guayaquil,Residencial,Otoño,922,20.3,70.7,12.7,33.6
+AIR-046,Cuenca,Céntrica,Verano,1688,26.1,56.2,10.1,40.5
+AIR-047,Cuenca,Residencial,Invierno,629,13.7,63.6,9.1,27.8
+AIR-048,Cuenca,Céntrica,Otoño,1670,16.9,67.7,16.7,36.7
+AIR-049,Manta,Periurbana,Otoño,388,20.2,66.3,13.2,20.9
+AIR-050,Cuenca,Céntrica,Primavera,1394,15.5,79.2,10.7,39.7
+AIR-051,Cuenca,Céntrica,Otoño,1679,21.1,62.6,11.3,45.5
+AIR-052,Quito,Periurbana,Verano,527,23.5,72.5,3.6,23.5
+AIR-053,Cuenca,Residencial,Otoño,625,19.9,53.9,18.7,28.2
+AIR-054,Cuenca,Residencial,Otoño,632,15.9,61.0,11.6,28.9
+AIR-055,Manta,Céntrica,Otoño,1924,16.4,73.5,10.9,43.9
+AIR-056,Guayaquil,Industrial,Verano,1074,28.9,63.0,13.4,35.4
+AIR-057,Quito,Céntrica,Otoño,1455,17.0,47.0,8.8,48.9
+AIR-058,Quito,Industrial,Verano,1182,25.2,73.3,9.5,40.4
+AIR-059,Quito,Industrial,Primavera,1328,22.9,48.5,8.3,42.9
+AIR-060,Cuenca,Industrial,Otoño,880,22.5,48.0,17.9,39.1
+AIR-061,Manta,Industrial,Otoño,1293,17.1,58.4,14.4,44.0
+AIR-062,Guayaquil,Residencial,Otoño,926,17.8,67.9,8.3,29.7
+AIR-063,Quito,Residencial,Invierno,1002,12.6,64.9,10.1,41.6
+AIR-064,Loja,Periurbana,Otoño,366,20.5,86.0,14.4,15.6
+AIR-065,Guayaquil,Céntrica,Otoño,1303,18.6,74.4,5.9,42.2
+AIR-066,Loja,Periurbana,Primavera,282,19.4,74.4,12.9,16.7
+AIR-067,Cuenca,Periurbana,Invierno,284,14.7,71.9,9.4,28.4
+AIR-068,Loja,Periurbana,Verano,377,22.6,58.1,15.5,20.5
+AIR-069,Guayaquil,Industrial,Primavera,837,24.3,64.0,8.9,42.1
+AIR-070,Manta,Industrial,Invierno,1977,12.2,66.8,10.2,55.2
+AIR-071,Quito,Industrial,Primavera,1642,19.8,58.0,11.8,43.1
+AIR-072,Quito,Periurbana,Verano,433,29.0,51.7,11.5,17.4
+AIR-073,Guayaquil,Residencial,Primavera,780,20.2,48.3,2.3,30.3
+AIR-074,Guayaquil,Residencial,Otoño,978,21.0,41.6,7.8,32.5
+AIR-075,Cuenca,Periurbana,Otoño,409,20.2,67.2,12.7,20.3
+AIR-076,Loja,Industrial,Otoño,1781,16.5,87.9,10.3,49.9
+AIR-077,Quito,Céntrica,Verano,1842,23.0,66.9,18.7,38.1
+AIR-078,Manta,Periurbana,Primavera,369,21.4,75.3,10.1,23.8
+AIR-079,Loja,Periurbana,Invierno,318,15.3,79.4,8.1,28.7
+AIR-080,Quito,Periurbana,Verano,302,18.4,69.0,16.2,13.5
+AIR-081,Guayaquil,Residencial,Invierno,751,11.7,63.9,6.4,39.7
+AIR-082,Manta,Residencial,Primavera,647,18.1,60.5,8.8,34.2
+AIR-083,Cuenca,Industrial,Primavera,1399,17.5,42.1,8.9,41.8
+AIR-084,Cuenca,Céntrica,Primavera,2221,18.9,54.3,13.2,51.9
+AIR-085,Cuenca,Periurbana,Invierno,373,15.0,82.3,17.0,20.0
+AIR-086,Quito,Industrial,Verano,1317,23.3,68.6,7.2,40.5
+AIR-087,Manta,Periurbana,Invierno,441,16.7,65.7,11.0,32.0
+AIR-088,Quito,Periurbana,Otoño,440,19.2,80.0,13.3,24.3
+AIR-089,Manta,Periurbana,Otoño,458,21.9,54.9,12.8,23.5
+AIR-090,Quito,Residencial,Otoño,933,19.5,74.5,11.2,28.5
+AIR-091,Quito,Industrial,Primavera,1920,15.1,77.4,3.9,49.8
+AIR-092,Cuenca,Residencial,Verano,584,21.8,70.0,10.9,25.5
+AIR-093,Loja,Periurbana,Verano,522,21.8,78.5,6.5,23.0
+AIR-094,Loja,Céntrica,Invierno,1682,18.8,78.6,8.1,53.3
+AIR-095,Manta,Residencial,Invierno,708,16.0,40.0,14.0,33.2
+AIR-096,Guayaquil,Residencial,Invierno,685,19.6,88.1,18.0,31.0
+AIR-097,Quito,Industrial,Otoño,1759,21.3,82.9,4.2,51.5
+AIR-098,Quito,Industrial,Primavera,1478,19.0,77.6,12.1,46.2
+AIR-099,Quito,Periurbana,Otoño,496,18.8,64.4,8.5,22.0
+AIR-100,Quito,Céntrica,Otoño,1641,17.9,70.9,15.8,42.6
+AIR-101,Cuenca,Industrial,Verano,1321,26.4,58.5,10.1,41.4
+AIR-102,Loja,Céntrica,Otoño,1445,18.2,62.9,10.8,45.1
+AIR-103,Loja,Industrial,Primavera,1356,18.4,78.3,13.6,37.3
+AIR-104,Cuenca,Industrial,Verano,1411,25.8,69.2,13.3,41.7
+AIR-105,Manta,Periurbana,Verano,479,23.0,61.9,13.1,13.2
+AIR-106,Cuenca,Residencial,Invierno,511,14.4,63.2,17.5,25.0
+AIR-107,Loja,Periurbana,Otoño,585,23.1,53.3,19.6,26.4
+AIR-108,Quito,Periurbana,Verano,535,25.0,93.4,6.9,19.7
+AIR-109,Quito,Residencial,Invierno,833,16.8,65.8,13.4,38.9
+AIR-110,Quito,Céntrica,Invierno,1173,13.1,84.6,14.6,38.8
+AIR-111,Manta,Industrial,Primavera,1386,15.1,78.9,11.9,45.0
+AIR-112,Manta,Industrial,Invierno,2097,10.4,57.3,14.8,55.8
+AIR-113,Loja,Periurbana,Primavera,395,22.5,53.4,10.0,18.7
+AIR-114,Guayaquil,Periurbana,Primavera,346,24.1,61.4,5.9,20.2
+AIR-115,Loja,Industrial,Verano,1535,22.6,73.3,8.0,45.7
+AIR-116,Manta,Residencial,Primavera,765,24.5,46.7,16.8,25.4
+AIR-117,Guayaquil,Periurbana,Primavera,242,18.2,56.5,18.3,11.7
+AIR-118,Quito,Periurbana,Invierno,434,12.0,61.6,10.6,31.0
+AIR-119,Manta,Residencial,Verano,741,30.1,73.9,4.7,27.5
+AIR-120,Guayaquil,Residencial,Verano,941,22.4,76.4,13.4,25.3
+AIR-121,Manta,Céntrica,Primavera,1741,17.3,64.4,11.1,45.2
+AIR-122,Manta,Residencial,Verano,606,25.6,74.3,14.4,23.4
+AIR-123,Cuenca,Céntrica,Verano,1981,24.0,67.2,15.9,43.9
+AIR-124,Manta,Industrial,Invierno,1512,14.1,95.7,19.3,47.1
+AIR-125,Manta,Céntrica,Invierno,1750,13.7,65.6,12.1,52.3
+AIR-126,Cuenca,Industrial,Primavera,2333,19.9,62.7,7.0,56.9
+AIR-127,Quito,Residencial,Primavera,1069,19.0,64.8,14.0,30.7
+AIR-128,Manta,Industrial,Invierno,1184,14.0,60.7,7.5,51.4
+AIR-129,Manta,Céntrica,Otoño,1047,16.6,64.7,7.7,37.9
+AIR-130,Quito,Residencial,Verano,649,24.1,94.8,10.9,26.9
+AIR-131,Loja,Residencial,Otoño,817,18.5,43.5,12.9,26.5
+AIR-132,Cuenca,Industrial,Primavera,1822,16.5,69.0,11.8,49.8
+AIR-133,Guayaquil,Industrial,Primavera,1907,22.3,80.7,8.2,53.7
+AIR-134,Manta,Céntrica,Otoño,1879,15.9,65.8,21.2,43.1
+AIR-135,Guayaquil,Céntrica,Verano,1889,25.5,62.5,11.0,45.3
+AIR-136,Manta,Periurbana,Invierno,324,13.7,69.1,15.2,28.4
+AIR-137,Loja,Industrial,Verano,1791,24.7,39.8,2.5,51.7
+AIR-138,Quito,Céntrica,Invierno,1786,15.1,80.9,9.7,50.8
+AIR-139,Guayaquil,Céntrica,Verano,1697,29.6,76.6,14.2,39.2
+AIR-140,Cuenca,Periurbana,Primavera,432,17.9,58.4,13.7,21.1
+AIR-141,Loja,Residencial,Verano,620,24.1,60.4,10.3,23.3
+AIR-142,Loja,Industrial,Primavera,1308,12.4,82.2,5.0,43.0
+AIR-143,Cuenca,Residencial,Invierno,1011,12.9,70.7,23.7,30.6
+AIR-144,Manta,Industrial,Primavera,1321,17.5,85.1,12.4,41.0
+AIR-145,Quito,Céntrica,Verano,1449,21.9,80.3,13.8,39.1
+AIR-146,Cuenca,Residencial,Otoño,686,24.0,72.8,10.8,27.5
+AIR-147,Quito,Céntrica,Otoño,2323,18.0,61.9,8.2,58.4
+AIR-148,Loja,Céntrica,Verano,1347,25.9,53.7,10.1,38.1
+AIR-149,Manta,Céntrica,Primavera,1837,19.6,74.2,9.9,43.4
+AIR-150,Cuenca,Industrial,Otoño,1115,17.3,67.5,5.4,41.9
 '''
 
 SAMPLES = [

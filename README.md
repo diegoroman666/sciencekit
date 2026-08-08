@@ -181,12 +181,39 @@ varias variables que, por separado, ajustan mal.
 | --- | --- | --- | --- | --- |
 | Agronomía | `rendimiento_cultivos.csv` | 140 × 9 | `Fertilizante_kg_ha` → `Rendimiento_ton_ha` | 0,76 |
 | Salud | `salud_cardiovascular.csv` | 150 × 9 | `Edad` → `Presion_sistolica` | 0,73 |
-| Educación | `rendimiento_academico.csv` | 160 × 8 | `Horas_estudio_sem` → `Puntaje_final` | 0,53 |
-| Economía | `ventas_retail.csv` | 150 × 8 | `Inversion_publicidad_kUSD` → `Ventas_kUSD` | 0,87 |
-| Medio ambiente | `calidad_aire.csv` | 150 × 9 | `Trafico_veh_hora` → `PM25_ug_m3` | 0,75 |
+| Educación | `rendimiento_academico.csv` | 160 × 8 | `Horas_estudio_sem` → `Puntaje_final` | 0,46 |
+| Economía | `ventas_retail.csv` | 150 × 8 | `Inversion_publicidad_kUSD` → `Ventas_kUSD` | 0,85 |
+| Medio ambiente | `calidad_aire.csv` | 150 × 9 | `Trafico_veh_hora` → `PM25_ug_m3` | 0,81 |
 
 Los datos son sintéticos y deterministas: `python scripts/make_sample.py`
-reproduce los cinco archivos byte a byte.
+reproduce los cinco archivos byte a byte. El generador se audita a sí mismo: si
+una distribución quedara recortada contra un límite —lo que apila filas en un
+mismo valor extremo y falsea moda, histograma y regresión— la generación falla
+en vez de publicar la tabla.
+
+## Pruebas
+
+```
+python -m unittest discover -s tests -v     # motor: 176 pruebas de caja negra
+node tests/e2e.mjs                          # app real en Chromium: 66 comprobaciones
+```
+
+Las pruebas de Python cubren el motor sin tocar la interfaz: estadística
+contrastada contra valores calculados a mano, parsing de CSV/XLSX reales
+(delimitadores, BOM, coma decimal, huecos, filas irregulares), el contrato
+completo de `dispatch()` con sus errores, y la integridad de los cinco datasets
+—cada módulo sobre cada columna de cada tabla—.
+
+`tests/e2e.mjs` levanta la app entera en Chromium (Pyodide incluido) y comprueba
+lo que sólo existe en el navegador: la galería, las descargas y su reimportación,
+arrastrar y soltar, los cuatro módulos sobre los cinco datasets, teclado y foco,
+`aria-current`, el diseño en móvil, ambos temas y el contraste de todo el texto
+contra WCAG AA. Requiere la app servida:
+
+```
+python app.py &                 # o: python -m http.server 8080 --directory dist
+node tests/e2e.mjs http://127.0.0.1:5000
+```
 
 ## Historia
 

@@ -15,9 +15,35 @@ from __future__ import annotations
 import csv
 import io
 import random
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+
+
+def bounded(
+    rng: random.Random,
+    mu: float,
+    sigma: float,
+    lo: float | None = None,
+    hi: float | None = None,
+    tries: int = 500,
+) -> float:
+    """A Gaussian draw restricted to [lo, hi] by resampling, never by clamping.
+
+    Clamping (`max(lo, gauss(...))`) piles every rejected draw onto the exact
+    boundary. In a teaching dataset that shows up as a fake mode sitting on the
+    minimum, a spike in the histogram and a distorted regression — so the range
+    is enforced by drawing again instead. `audit()` proves no spike survives.
+    """
+    for _ in range(tries):
+        value = rng.gauss(mu, sigma)
+        if (lo is None or value >= lo) and (hi is None or value <= hi):
+            return value
+    raise RuntimeError(
+        f"bounded(): {tries} intentos sin caer en [{lo}, {hi}] con "
+        f"mu={mu}, sigma={sigma} — revise los parámetros."
+    )
 
 
 # ── 01 · Agronomía ───────────────────────────────────────────────────────────
@@ -50,13 +76,12 @@ def build_rows(n: int = 140, seed: int = 20260808) -> list[list[object]]:
 
         # Regional baselines keep the categorical columns informative.
         base_water = {"Norte": 380, "Centro": 460, "Sur": 520, "Litoral": 600}[region]
-        water = round(rng.gauss(base_water, 70), 1)
-        water = max(180.0, water)
+        water = round(bounded(rng, base_water, 70, lo=180.0), 1)
 
-        fertiliser = round(max(20.0, rng.gauss(160, 42)), 1)
+        fertiliser = round(bounded(rng, 160, 42, lo=20.0), 1)
         temperature = round(rng.gauss({"Norte": 17.5, "Centro": 20.0,
                                        "Sur": 22.5, "Litoral": 24.0}[region], 1.9), 1)
-        sunshine = round(max(3.5, rng.gauss(7.6, 1.15)), 2)
+        sunshine = round(bounded(rng, 7.6, 1.15, lo=3.5), 2)
 
         variety_bonus = {"Aurora": 0.0, "Sembra": 0.28, "Kirán": -0.18}[variety]
 
@@ -74,7 +99,7 @@ def build_rows(n: int = 140, seed: int = 20260808) -> list[list[object]]:
             + variety_bonus
             + rng.gauss(0, 0.22)
         )
-        yield_ton = round(max(0.6, yield_ton), 2)
+        yield_ton = round(yield_ton, 2)
 
         rows.append([
             f"P-{i + 1:03d}",
@@ -121,12 +146,10 @@ def build_health(n: int = 150, seed: int = 20260809) -> list[list[object]]:
         )
 
         bmi_base = {"Baja": 29.4, "Media": 26.3, "Alta": 23.8}[activity]
-        bmi = round(max(16.5, rng.gauss(bmi_base + 0.035 * (age - 45), 2.9)), 1)
+        bmi = round(bounded(rng, bmi_base + 0.035 * (age - 45), 2.9, lo=16.5), 1)
 
-        cholesterol = round(
-            max(110.0, 148 + 0.88 * age + 2.4 * (bmi - 25) + rng.gauss(0, 17)), 1
-        )
-        sleep = round(min(10.0, max(3.5, rng.gauss(7.0, 1.05))), 1)
+        cholesterol = round(148 + 0.88 * age + 2.4 * (bmi - 25) + rng.gauss(0, 17), 1)
+        sleep = round(bounded(rng, 7.0, 1.05, lo=3.5, hi=10.0), 1)
 
         # Age is the dominant term and BMI the second: a clean pairing for the
         # regression module, while sleep and cholesterol stay weakly predictive
@@ -141,7 +164,7 @@ def build_health(n: int = 150, seed: int = 20260809) -> list[list[object]]:
             + (2.8 if sex == "Masculino" else 0.0)
             + rng.gauss(0, 6.0)
         )
-        systolic = round(min(196.0, max(92.0, systolic)), 1)
+        systolic = round(systolic, 1)
 
         rows.append([
             f"PAC-{i + 1:03d}",
@@ -185,9 +208,9 @@ def build_education(n: int = 160, seed: int = 20260810) -> list[list[object]]:
         scholarship = rng.choices(["Sí", "No"], weights=[35, 65])[0]
 
         study_base = 13.5 if shift == "Diurna" else 9.5
-        study = round(min(32.0, max(1.5, rng.gauss(study_base, 4.6))), 1)
-        attendance = round(min(100.0, max(42.0, rng.gauss(84.0, 10.5))), 1)
-        screen = round(min(9.5, max(0.5, rng.gauss(4.3, 1.35))), 1)
+        study = round(bounded(rng, study_base, 4.6, lo=1.5, hi=32.0), 1)
+        attendance = round(bounded(rng, 84.0, 10.5, lo=42.0, hi=100.0), 1)
+        screen = round(bounded(rng, 4.3, 1.35, lo=0.5, hi=9.5), 1)
 
         # Study hours explain most of the variance in the score; attendance adds
         # a second, weaker signal.
@@ -201,7 +224,7 @@ def build_education(n: int = 160, seed: int = 20260810) -> list[list[object]]:
                "Economía": 0.0, "Enfermería": 1.4}[career]
             + rng.gauss(0, 5.4)
         )
-        score = round(min(100.0, max(12.0, score)), 1)
+        score = round(score, 1)
 
         rows.append([
             f"EST-{i + 1:03d}",
@@ -245,16 +268,18 @@ def build_sales(n: int = 150, seed: int = 20260811) -> list[list[object]]:
         category = rng.choice(CATEGORIES)
         channel = rng.choices(CHANNELS, weights=[45, 27, 28])[0]
 
-        spend = round(max(4.0, rng.gauss(46.0, 15.5)), 1)
+        spend = round(bounded(rng, 46.0, 15.5, lo=4.0), 1)
         price_base = {"Tecnología": 320.0, "Hogar": 96.0,
                       "Vestuario": 54.0, "Alimentos": 21.0}[category]
-        price = round(max(6.0, rng.gauss(price_base, price_base * 0.18)), 2)
+        price = round(bounded(rng, price_base, price_base * 0.18, lo=6.0), 2)
 
         # Traffic partly follows ad spend, so the two predictors overlap the way
-        # they do in real commercial data.
-        visits = round(max(1.2, 9.5 + 0.30 * spend + rng.gauss(0, 4.2)), 2)
+        # they do in real commercial data. The noise is drawn inside the range
+        # that keeps the total positive, so no branch lands on a floor.
+        visits_base = 9.5 + 0.30 * spend
+        visits = round(visits_base + bounded(rng, 0, 4.2, lo=1.2 - visits_base), 2)
 
-        revenue = (
+        revenue_base = (
             22.0
             + 1.95 * spend
             + 2.35 * visits
@@ -262,9 +287,8 @@ def build_sales(n: int = 150, seed: int = 20260811) -> list[list[object]]:
             + {"Tienda física": 0.0, "Online": 9.5, "Mixto": 14.0}[channel]
             + {"Quito": 6.0, "Guayaquil": 7.5, "Cuenca": 0.0,
                "Manta": -3.5, "Loja": -6.0}[city]
-            + rng.gauss(0, 13.5)
         )
-        revenue = round(max(5.0, revenue), 2)
+        revenue = round(revenue_base + bounded(rng, 0, 13.5, lo=8.0 - revenue_base), 2)
 
         rows.append([
             f"SUC-{i + 1:03d}",
@@ -308,29 +332,33 @@ def build_air(n: int = 150, seed: int = 20260812) -> list[list[object]]:
         zone = rng.choice(ZONES)
         season = rng.choice(SEASONS)
 
+        # Quieter zones vary less in absolute terms, which also keeps every
+        # zone's spread well clear of zero.
         traffic_base = {"Industrial": 1450, "Céntrica": 1750,
                         "Residencial": 780, "Periurbana": 420}[zone]
-        traffic = int(max(90, rng.gauss(traffic_base, 320)))
+        traffic = int(bounded(rng, traffic_base, traffic_base * 0.22, lo=120))
 
         temp = round(rng.gauss({"Verano": 24.5, "Otoño": 19.0,
                                 "Invierno": 14.5, "Primavera": 20.5}[season], 2.6), 1)
-        humidity = round(min(98.0, max(28.0, rng.gauss(68.0, 11.5))), 1)
-        wind = round(max(0.6, rng.gauss(11.5, 4.3)), 1)
+        humidity = round(bounded(rng, 68.0, 11.5, lo=28.0, hi=98.0), 1)
+        wind = round(bounded(rng, 11.5, 4.3, lo=0.8, hi=26.0), 1)
 
         # Traffic is the leading term and wind the clearest negative one, so the
-        # regression module shows both signs of slope on the same table.
-        pm25 = (
-            9.0
-            + 0.0135 * traffic
-            - 0.92 * wind
-            - 0.055 * humidity
-            + {"Industrial": 7.5, "Céntrica": 3.0,
-               "Residencial": 0.0, "Periurbana": -2.5}[zone]
+        # regression module shows both signs of slope on the same table. The
+        # intercept is high enough that clean-air rows stay comfortably above
+        # zero: an earlier version bottomed out and left a quarter of the rows
+        # stacked on the same value.
+        pm25_base = (
+            25.0
+            + 0.0125 * traffic
+            - 0.52 * wind
+            - 0.04 * (humidity - 68.0)
+            + {"Industrial": 7.0, "Céntrica": 3.0,
+               "Residencial": 0.0, "Periurbana": -3.0}[zone]
             + {"Verano": -1.5, "Otoño": 1.0,
                "Invierno": 5.5, "Primavera": 0.0}[season]
-            + rng.gauss(0, 3.4)
         )
-        pm25 = round(max(1.4, pm25), 1)
+        pm25 = round(pm25_base + bounded(rng, 0, 3.0, lo=1.5 - pm25_base), 1)
 
         rows.append([
             f"AIR-{i + 1:03d}",
@@ -493,12 +521,47 @@ def entry_source(spec: dict, rows: list[list[object]]) -> str:
     ])
 
 
+def audit(spec: dict, rows: list[list[object]]) -> None:
+    """Fail the build on the data defects that are easy to introduce silently.
+
+    A clamped distribution stacks rows on one boundary value, which the app
+    then reports as a mode sitting on the minimum and draws as a spike in the
+    histogram. Checking here means a bad retune can never reach the site.
+    """
+    header = rows[0]
+    body = rows[1:]
+
+    for index, name in enumerate(header):
+        values = [row[index] for row in body]
+        if not all(isinstance(v, (int, float)) for v in values):
+            continue
+
+        value, count = Counter(values).most_common(1)[0]
+        if count > 2 and value in (min(values), max(values)):
+            raise SystemExit(
+                f"{spec['name']}: «{name}» repite {count} veces el valor "
+                f"extremo {value} — parece un recorte (clamp). Use bounded() "
+                "para redibujar en vez de recortar."
+            )
+        if name == spec["target"] and min(values) <= 0:
+            raise SystemExit(
+                f"{spec['name']}: «{name}» contiene valores no positivos "
+                f"(mínimo {min(values)}), lo que no tiene sentido físico."
+            )
+
+    if spec["driver"] not in header or spec["target"] not in header:
+        raise SystemExit(
+            f"{spec['name']}: driver/target del catálogo no existen como columnas."
+        )
+
+
 def main() -> None:
     parts: list[str] = [MODULE_DOC]
     entries: list[str] = []
 
     for spec in DATASETS:
         rows = spec["build"]()
+        audit(spec, rows)
         text = to_csv(rows)
 
         csv_path = ROOT / "sample_data" / spec["name"]

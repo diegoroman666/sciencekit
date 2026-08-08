@@ -6,7 +6,7 @@
 <div id="boot" class="fixed inset-0 z-50 flex items-center justify-center bg-paper dark:bg-shell px-6">
   <div class="w-full max-w-sm">
     <div class="flex items-baseline gap-2.5 mb-5">
-      <span class="font-mono text-[11px] tracking-[0.2em] text-flame">SK</span>
+      <span class="font-mono text-[11px] tracking-[0.2em] text-flame dark:text-flame-soft">SK</span>
       <span class="display text-[17px]">SciencKit</span>
     </div>
     <div class="label mb-2.5" id="boot-status">Iniciando motor de Python…</div>
@@ -23,7 +23,7 @@
 <header class="sticky top-0 z-30 border-b rule bg-paper/85 dark:bg-shell/85 backdrop-blur-md">
   <div class="flex items-center gap-4 h-14 px-4 sm:px-6">
     <div class="flex items-baseline gap-2.5 shrink-0">
-      <span class="font-mono text-[11px] tracking-[0.2em] text-flame">SK</span>
+      <span class="font-mono text-[11px] tracking-[0.2em] text-flame dark:text-flame-soft">SK</span>
       <h1 class="display text-[15px] leading-none">SciencKit</h1>
       <span class="hidden sm:inline label !text-[9px] pl-1">v{{ version }}</span>
     </div>
@@ -31,7 +31,7 @@
     {# Live dataset readout — the instrument's status line #}
     <div class="flex-1 min-w-0 hidden md:block">
       <div id="status-line" class="font-mono text-[11px] text-ink-3 dark:text-chalk-3 truncate">
-        <span class="text-flame">●</span> sin dataset — cargue un archivo para comenzar
+        <span class="text-flame dark:text-flame-soft">●</span> sin dataset — cargue un archivo para comenzar
       </div>
     </div>
 
@@ -65,7 +65,7 @@
     <h2 class="display text-[clamp(1.9rem,5vw,2.9rem)] leading-[1.06] mb-4">
       Cargue una tabla.<br>
       Obtenga la estadística<br>
-      <span class="text-flame">que importa.</span>
+      <span class="text-flame dark:text-flame-soft">que importa.</span>
     </h2>
     <p class="text-[14.5px] leading-relaxed text-ink-2 dark:text-chalk-2 mb-8 max-w-md">
       Estadística descriptiva, gráficos, regresión lineal y probabilidad normal
@@ -86,7 +86,7 @@
         <button id="btn-load-2" class="btn-primary shrink-0">Elegir archivo</button>
       </div>
       <div id="drop-overlay" class="absolute inset-0 hidden items-center justify-center bg-flame/[0.07] border border-flame rounded-card">
-        <span class="font-mono text-[11px] uppercase tracking-[0.14em] text-flame">Suelte para cargar</span>
+        <span class="font-mono text-[11px] uppercase tracking-[0.14em] text-flame dark:text-flame-soft">Suelte para cargar</span>
       </div>
     </div>
 
@@ -324,7 +324,7 @@
     <p class="font-mono text-[10.5px] text-ink-3 dark:text-chalk-3">
       Motor de cálculo en Python · ejecutado en el navegador con
       <a href="https://pyodide.org" target="_blank" rel="noopener noreferrer"
-         class="underline decoration-dotted underline-offset-2 hover:text-flame">Pyodide</a>
+         class="underline decoration-dotted underline-offset-2 hover:text-flame dark:hover:text-flame-soft">Pyodide</a>
     </p>
     <p class="font-mono text-[10.5px] text-ink-3 dark:text-chalk-3">
       Interfaz con Tailwind CSS · SciencKit v{{ version }}

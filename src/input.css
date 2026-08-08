@@ -23,16 +23,20 @@
   --color-shell-3: #24241d;
   --color-chalk: #f2f0e8;
   --color-chalk-2: #b5b2a4;
-  --color-chalk-3: #7e7b6e;
+  /* Every colour below carries small text (11 px mono labels), so each one is
+     kept at 4.5:1 or better against the surface it sits on — checked over the
+     whole palette by `node tests/e2e.mjs`. The muted tones were a step lighter
+     and failed on the panel backgrounds. */
+  --color-chalk-3: #8f8c7e;
   --color-rule-dark: #302f26;
 
   /* One action accent, one data accent. Restraint is the point. */
-  --color-flame: #d6421c;
+  --color-flame: #c73c17;
   --color-flame-soft: #f0724a;
   --color-signal: #1b6b5f;
   --color-signal-soft: #4fc0ad;
 
-  --color-warn: #9a6510;
+  --color-warn: #8f5d0d;
   --color-warn-dark: #e2a33c;
 
   --radius-card: 3px;
@@ -152,7 +156,10 @@
     @apply btn bg-flame text-white hover:bg-[#b8360f];
   }
   [data-theme="dark"] .btn-primary {
-    @apply bg-flame text-white hover:bg-flame-soft;
+    /* The hover brightens instead of darkening, which is what reads as
+       "raised" on a dark ground — so the label flips to ink, since white on
+       flame-soft is only 2,9:1. */
+    @apply bg-flame text-white hover:bg-flame-soft hover:text-shell;
   }
 
   .btn-ghost {

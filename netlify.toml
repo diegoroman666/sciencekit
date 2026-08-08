@@ -14,6 +14,10 @@
 [build.environment]
   NODE_VERSION = "22"
   PYTHON_VERSION = "3.11"
+  # Playwright es una dependencia de desarrollo (tests/e2e.mjs). Netlify instala
+  # también las devDependencies, y su postinstall descargaría ~150 MB de
+  # navegadores que el build no usa: aquí no se ejecutan pruebas de navegador.
+  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = "1"
 
 # Single page, so anything unresolved falls back to it rather than a 404 page.
 [[redirects]]
