@@ -45,7 +45,9 @@ def es(value: float, digits: int | None = None, *, signed: bool = False) -> str:
     out = grouped + ("," + decimals if decimals else "")
 
     if negative:
-        return "−" + out  # U+2212 minus, which aligns with digit width
+        # ASCII hyphen, matching what `toLocaleString("es-ES")` produces on the
+        # JS side — a mixed minus sign is visible when both appear in one view.
+        return "-" + out
     if signed:
         return "+" + out
     return out

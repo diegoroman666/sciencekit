@@ -421,13 +421,15 @@ function renderQualitative(result, column) {
     )
     .join("");
 
+  // Headers are spelled out rather than using fᵢ / hᵢ / Hᵢ: the header style
+  // uppercases text, which would render relative and cumulative identically.
   const tableHtml = `<div class="max-h-[420px] overflow-auto thin-scroll">
     <table class="data-table">
       <thead><tr>
         <th>Valor</th>
-        <th class="num">f<sub>i</sub></th>
-        <th class="num">h<sub>i</sub></th>
-        <th class="num">H<sub>i</sub></th>
+        <th class="num">Frecuencia</th>
+        <th class="num">Relativa</th>
+        <th class="num">Acumulada</th>
         <th></th>
       </tr></thead>
       <tbody>${rows}</tbody>
