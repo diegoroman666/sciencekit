@@ -4,11 +4,12 @@
   "private": true,
   "description": "Analisis estadistico con motor en Python y UI en Tailwind CSS",
   "scripts": {
-    "fetch:assets": "python3 scripts/fetch_pyodide.py && python3 scripts/fetch_fonts.py",
+    "fetch:assets": "node scripts/python.mjs scripts/fetch_pyodide.py && node scripts/python.mjs scripts/fetch_fonts.py",
     "build:css": "tailwindcss -i ./src/input.css -o ./static/css/app.css --minify",
     "watch:css": "tailwindcss -i ./src/input.css -o ./static/css/app.css --watch",
-    "build": "npm run fetch:assets && npm run build:css && python3 build.py",
-    "dev": "python3 app.py"
+    "build": "npm run fetch:assets && npm run build:css && node scripts/python.mjs build.py",
+    "dev": "node scripts/python.mjs app.py",
+    "setup": "npm run fetch:assets && npm run build:css"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.3.3",
@@ -21,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/diegoroman666/sciencekit/issues"
   },
-  "homepage": "https://github.com/diegoroman666/sciencekit#readme"
+  "homepage": "https://github.com/diegoroman666/sciencekit#readme",
+  "engines": {
+    "node": ">=18"
+  }
 }

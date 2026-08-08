@@ -5,7 +5,10 @@
 # does not run Python server-side, so there are no functions here.
 
 [build]
-  command = "npm run build"
+  # Las dependencias de Python se instalan explícitamente: build.py usa Jinja2 y
+  # aquí no hay virtualenv, así que no se depende de que Netlify detecte solo el
+  # requirements.txt.
+  command = "python3 -m pip install --quiet -r requirements.txt && npm run build"
   publish = "dist"
 
 [build.environment]
@@ -24,7 +27,7 @@
     Content-Type = "text/x-python; charset=utf-8"
 
 [context.deploy-preview]
-  command = "npm run build"
+  command = "python3 -m pip install --quiet -r requirements.txt && npm run build"
 
 [context.production]
-  command = "npm run build"
+  command = "python3 -m pip install --quiet -r requirements.txt && npm run build"

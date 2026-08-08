@@ -1,3 +1,6 @@
-# Development server only. The analysis engine (core/) needs nothing but the
-# Python standard library, which is what lets it run unchanged under Pyodide.
-Flask>=3.0,<4.0
+# El motor de análisis (core/) no necesita nada fuera de la biblioteca estándar
+# de Python — eso es justamente lo que le permite ejecutarse igual bajo Pyodide.
+# Estas dependencias son de las herramientas que lo rodean:
+
+Flask>=3.0,<4.0    # servidor de desarrollo (app.py)
+Jinja2>=3.1        # plantillas; build.py la usa directamente, sin Flask

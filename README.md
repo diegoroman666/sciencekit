@@ -67,23 +67,53 @@ un gráfico cambia de tema claro a oscuro sin volver a renderizarse.
 
 ## Puesta en marcha
 
-Requisitos: Python 3.11+ y Node 18+.
+Requisitos previos: **Python 3.11+**, **Node 18+** y **Git**.
 
 ```bash
-# 1. dependencias
-python3 -m venv .venv && source .venv/bin/activate
+git clone -b claude/python-tailwind-web-project-szj7r2 \
+    https://github.com/diegoroman666/sciencekit
+cd sciencekit
+```
+
+Después, según el sistema:
+
+<details open>
+<summary><b>Windows</b> (PowerShell, incluida la terminal de VS Code)</summary>
+
+```powershell
+py -3 -m venv .venv
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 npm install
-
-# 2. descargar el runtime de Python para el navegador y las fuentes (~12 MB)
-npm run fetch:assets
-
-# 3. compilar los estilos
-npm run build:css
-
-# 4. arrancar
-npm run dev          # http://127.0.0.1:5000
+npm run setup     # descarga Pyodide y las fuentes, y compila los estilos
+npm run dev       # http://127.0.0.1:5000
 ```
+
+Si `Activate.ps1` da un error de directivas de ejecución, ejecute una vez:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
+
+</details>
+
+<details>
+<summary><b>macOS y Linux</b></summary>
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+npm install
+npm run setup     # descarga Pyodide y las fuentes, y compila los estilos
+npm run dev       # http://127.0.0.1:5000
+```
+
+</details>
+
+Los scripts de npm localizan el intérprete por su cuenta —`python3`, `python` o
+el lanzador `py` de Windows— y prefieren el virtualenv del proyecto si existe,
+así que funcionan con el venv activado o sin activar.
 
 Durante el desarrollo de estilos conviene dejar Tailwind en modo vigilancia en
 otra terminal:
@@ -101,6 +131,7 @@ npm run watch:css
 | `npm run build:css` | Compila y minifica los estilos. |
 | `npm run fetch:assets` | Descarga Pyodide y las fuentes a `static/`. |
 | `npm run build` | Todo lo anterior y genera el sitio estático en `dist/`. |
+| `npm run setup` | `fetch:assets` + `build:css`, para dejarlo listo tras clonar. |
 | `python scripts/make_sample.py` | Regenera el dataset de ejemplo. |
 
 Los activos descargados (`static/pyodide/`, `static/fonts/`) y los compilados
@@ -110,7 +141,7 @@ Los activos descargados (`static/pyodide/`, `static/fonts/`) y los compilados
 
 `netlify.toml` ya está configurado:
 
-- **Build**: `npm run build`
+- **Build**: `python3 -m pip install -r requirements.txt && npm run build`
 - **Publish**: `dist`
 
 Netlify ejecuta el build, que descarga los activos, compila Tailwind y renderiza
