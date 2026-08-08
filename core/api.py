@@ -108,15 +108,39 @@ def _load(session: Session, payload: dict[str, Any]) -> dict[str, Any]:
     return {"dataset": dataset.to_dict()}
 
 
-def _demo(session: Session, payload: dict[str, Any]) -> dict[str, Any]:
-    """Load the bundled sample dataset so the app is usable with zero setup."""
-    from .sample import SAMPLE_CSV, SAMPLE_NAME
+def _sample(key: Any) -> dict[str, Any]:
+    """Resolve one bundled dataset by key, or raise a user-facing error."""
+    from . import sample as samples
 
-    dataset = read_csv(SAMPLE_CSV, name=SAMPLE_NAME)
+    requested = str(key).strip() if key else None
+    item = samples.get(requested)
+    if item is None:
+        raise ApiError(f"No existe un dataset de ejemplo llamado «{requested}».")
+    return item
+
+
+def _samples(session: Session, payload: dict[str, Any]) -> dict[str, Any]:
+    """Catalogue of the bundled datasets — metadata only, no CSV payloads."""
+    from . import sample as samples
+
+    return {"samples": samples.catalog(), "default": samples.DEFAULT_SAMPLE}
+
+
+def _demo(session: Session, payload: dict[str, Any]) -> dict[str, Any]:
+    """Load a bundled sample dataset so the app is usable with zero setup."""
+    item = _sample(payload.get("sample"))
+
+    dataset = read_csv(item["csv"], name=item["name"])
     session.dataset = dataset
     session.model = None
     session.model_pair = None
-    return {"dataset": dataset.to_dict(), "demo": True}
+    return {"dataset": dataset.to_dict(), "demo": True, "sample": item["key"]}
+
+
+def _sample_csv(session: Session, payload: dict[str, Any]) -> dict[str, Any]:
+    """Hand back the raw CSV of a bundled dataset, for the download button."""
+    item = _sample(payload.get("sample"))
+    return {"name": item["name"], "title": item["title"], "csv": item["csv"]}
 
 
 def _describe(session: Session, payload: dict[str, Any]) -> dict[str, Any]:
@@ -309,6 +333,8 @@ def _probability(session: Session, payload: dict[str, Any]) -> dict[str, Any]:
 ACTIONS = {
     "load": _load,
     "demo": _demo,
+    "samples": _samples,
+    "sample_csv": _sample_csv,
     "describe": _describe,
     "frequency": _frequency,
     "chart": _chart,

@@ -30,7 +30,7 @@ core/                        motor de análisis — sólo biblioteca estándar
 ├── dataset.py               lectura de CSV/XLSX e inferencia de tipos
 ├── analysis.py              estadística, regresión, probabilidad
 ├── charts.py                gráficos SVG generados desde Python
-├── sample.py                dataset de ejemplo incrustado
+├── sample.py                cinco datasets de ejemplo incrustados
 └── api.py                   dispatch(): única superficie de operaciones
         │
         ├──────────────► app.py      Flask, CPython           (desarrollo)
@@ -132,7 +132,7 @@ npm run watch:css
 | `npm run fetch:assets` | Descarga Pyodide y las fuentes a `static/`. |
 | `npm run build` | Todo lo anterior y genera el sitio estático en `dist/`. |
 | `npm run setup` | `fetch:assets` + `build:css`, para dejarlo listo tras clonar. |
-| `python scripts/make_sample.py` | Regenera el dataset de ejemplo. |
+| `python scripts/make_sample.py` | Regenera los cinco datasets de ejemplo. |
 
 Los activos descargados (`static/pyodide/`, `static/fonts/`) y los compilados
 (`static/css/app.css`, `dist/`) no están en git: `npm run build` los reconstruye.
@@ -166,16 +166,27 @@ curl -X POST localhost:5000/api/regression -H 'Content-Type: application/json' \
      -d '{"x":"Fertilizante_kg_ha","y":"Rendimiento_ton_ha"}'
 ```
 
-Acciones: `load`, `demo`, `describe`, `frequency`, `chart`, `regression`,
-`predict`, `normal`, `probability`.
+Acciones: `load`, `demo`, `samples`, `sample_csv`, `describe`, `frequency`,
+`chart`, `regression`, `predict`, `normal`, `probability`.
 
-## Dataset de ejemplo
+## Datasets de ejemplo
 
-`sample_data/rendimiento_cultivos.csv` — 140 parcelas agrícolas con cuatro
-variables cualitativas y cinco cuantitativas. Está construido para que los
-módulos se puedan explorar de verdad: `Fertilizante_kg_ha` predice
-`Rendimiento_ton_ha` con un ajuste fuerte (R² ≈ 0,76), mientras que riego,
-temperatura y horas de sol dan ajustes débiles por separado.
+Cinco tablas de áreas distintas viajan incrustadas en `core/sample.py` y, como
+archivo suelto, en `sample_data/`. La pantalla de inicio las lista: un clic las
+analiza y el botón «CSV» las descarga. Todas están construidas para que los
+módulos se puedan explorar de verdad — cada una tiene un predictor claro y
+varias variables que, por separado, ajustan mal.
+
+| Área | Archivo | Filas × cols. | Relación principal | R² |
+| --- | --- | --- | --- | --- |
+| Agronomía | `rendimiento_cultivos.csv` | 140 × 9 | `Fertilizante_kg_ha` → `Rendimiento_ton_ha` | 0,76 |
+| Salud | `salud_cardiovascular.csv` | 150 × 9 | `Edad` → `Presion_sistolica` | 0,73 |
+| Educación | `rendimiento_academico.csv` | 160 × 8 | `Horas_estudio_sem` → `Puntaje_final` | 0,53 |
+| Economía | `ventas_retail.csv` | 150 × 8 | `Inversion_publicidad_kUSD` → `Ventas_kUSD` | 0,87 |
+| Medio ambiente | `calidad_aire.csv` | 150 × 9 | `Trafico_veh_hora` → `PM25_ug_m3` | 0,75 |
+
+Los datos son sintéticos y deterministas: `python scripts/make_sample.py`
+reproduce los cinco archivos byte a byte.
 
 ## Historia
 

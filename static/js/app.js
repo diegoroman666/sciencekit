@@ -149,6 +149,7 @@ _session = _api.Session()
 
     state.ready = true;
     $("#boot").remove();
+    renderSamples();
   } catch (err) {
     console.error(err);
     status.textContent = "No se pudo iniciar el motor";
@@ -246,13 +247,86 @@ async function loadFile(file) {
   adoptDataset(result.dataset);
 }
 
-function loadDemo() {
-  const result = call("demo", {});
+/** Load one of the bundled datasets. No key means the default (first) one. */
+function loadDemo(key) {
+  const result = call("demo", key ? { sample: key } : {});
   if (!result.ok) {
     showEmptyError(result.error);
     return;
   }
   adoptDataset(result.dataset);
+}
+
+// ── sample gallery ─────────────────────────────────────────────────────────
+
+/**
+ * Render the catalogue of bundled datasets. The metadata comes from the Python
+ * engine, so the cards always describe the data that is actually embedded.
+ */
+function renderSamples() {
+  const grid = $("#samples-grid");
+  if (!grid) return;
+
+  const result = call("samples", {});
+  if (!result.ok) {
+    grid.innerHTML = "";
+    $("#samples-error").innerHTML = errorBox(result.error);
+    return;
+  }
+
+  grid.innerHTML = result.samples
+    .map(
+      (s) => `<article class="panel p-4 flex flex-col gap-3 fade-in">
+      <div class="flex items-center justify-between gap-2">
+        <span class="chip chip-cat">${esc(s.area)}</span>
+        <span class="font-mono text-[10px] text-ink-3 dark:text-chalk-3 tnum">
+          ${s.rows} × ${s.columns}
+        </span>
+      </div>
+      <div>
+        <h4 class="text-[14px] font-medium leading-snug mb-1">${esc(s.title)}</h4>
+        <p class="text-[12.5px] leading-relaxed text-ink-3 dark:text-chalk-3">
+          ${esc(s.description)}
+        </p>
+      </div>
+      <p class="font-mono text-[10px] text-ink-3 dark:text-chalk-3 leading-relaxed">
+        ${s.numeric} cuantitativas · ${s.categorical} cualitativas<br>
+        Sugerencia: ${esc(s.driver)} → ${esc(s.target)}
+      </p>
+      <div class="flex items-center gap-2 mt-auto pt-1">
+        <button class="btn-primary flex-1" data-sample="${esc(s.key)}">Analizar</button>
+        <button class="btn-ghost !px-3" data-download="${esc(s.key)}"
+                title="Descargar ${esc(s.name)}" aria-label="Descargar ${esc(s.name)}">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+               stroke-width="1.5" aria-hidden="true">
+            <path d="M8 2.5v8M8 10.5L5 7.5M8 10.5l3-3M2.5 12.5v.5a1 1 0 001 1h9a1 1 0 001-1v-.5"/>
+          </svg>
+          CSV
+        </button>
+      </div>
+    </article>`
+    )
+    .join("");
+}
+
+/** Save a bundled dataset to disk, straight from the embedded copy. */
+function downloadSample(key) {
+  const result = call("sample_csv", { sample: key });
+  if (!result.ok) {
+    $("#samples-error").innerHTML = errorBox(result.error);
+    return;
+  }
+
+  // The BOM makes Excel open the accented headers as UTF-8 rather than latin-1.
+  const blob = new Blob(["\ufeff", result.csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = result.name;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
 }
 
 function showEmptyError(message) {
@@ -907,7 +981,22 @@ function wire() {
     e.target.value = ""; // allow re-selecting the same file
   });
 
-  $("#btn-demo").addEventListener("click", loadDemo);
+  $("#btn-demo").addEventListener("click", () => loadDemo());
+
+  // Gallery cards are rendered after boot, so the listener sits on the grid.
+  $("#samples-grid").addEventListener("click", (e) => {
+    const load = e.target.closest("[data-sample]");
+    if (load) {
+      $("#samples-error").innerHTML = "";
+      loadDemo(load.dataset.sample);
+      return;
+    }
+    const save = e.target.closest("[data-download]");
+    if (save) {
+      $("#samples-error").innerHTML = "";
+      downloadSample(save.dataset.download);
+    }
+  });
 
   // Drag & drop onto the empty-state target.
   const drop = $("#drop");

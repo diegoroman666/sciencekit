@@ -58,8 +58,8 @@
 <input type="file" id="file-input" accept=".csv,.tsv,.txt,.xlsx,.xlsm" class="hidden">
 
 {# ── Empty state ───────────────────────────────────────────────────────── #}
-<section id="empty" class="flex-1 flex items-center px-4 sm:px-6 lg:px-10 py-12">
-  <div class="w-full max-w-5xl mx-auto grid gap-10 lg:gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+<section id="empty" class="flex-1">
+  <div class="px-4 sm:px-6 lg:px-10 py-12 w-full max-w-5xl mx-auto grid gap-10 lg:gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
   <div>
     <p class="label mb-3">Minería y análisis de datos</p>
     <h2 class="display text-[clamp(1.9rem,5vw,2.9rem)] leading-[1.06] mb-4">
@@ -93,7 +93,7 @@
     <div class="flex items-center gap-3 mt-6">
       <button id="btn-demo" class="btn-ghost">Probar con datos de ejemplo</button>
       <span class="font-mono text-[10.5px] text-ink-3 dark:text-chalk-3 hidden sm:inline">
-        140 parcelas agrícolas
+        o elija uno de los 5 datasets
       </span>
     </div>
 
@@ -142,6 +142,33 @@
       </div>
     </li>
   </ol>
+  </div>
+
+  {# Sample gallery — five bundled tables, loadable or downloadable as CSV.
+     The cards are rendered by app.js from the engine's `samples` action, so
+     the catalogue lives in Python and never drifts from the embedded data. #}
+  <div class="border-t rule px-4 sm:px-6 lg:px-10 py-12">
+    <div class="w-full max-w-5xl mx-auto">
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+        <div>
+          <p class="label mb-1.5">Datasets incrustados</p>
+          <h3 class="display text-[20px] leading-tight">
+            Cinco tablas de distintas áreas
+          </h3>
+        </div>
+        <p class="font-mono text-[10.5px] leading-relaxed text-ink-3 dark:text-chalk-3 max-w-xs sm:text-right">
+          Analícelas con un clic o descárguelas en CSV para abrirlas en Excel.
+        </p>
+      </div>
+
+      <div id="samples-grid" class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <p class="font-mono text-[11px] text-ink-3 dark:text-chalk-3">
+          Cargando catálogo…
+        </p>
+      </div>
+
+      <div id="samples-error" class="mt-4"></div>
+    </div>
   </div>
 </section>
 
@@ -303,6 +330,10 @@
       Interfaz con Tailwind CSS · SciencKit v{{ version }}
     </p>
   </div>
+  <p class="mt-3 pt-3 border-t rule font-mono text-[10.5px] text-ink-2 dark:text-chalk-2">
+    Sitio desarrollado por <span class="text-ink dark:text-chalk">Diego Román</span> ·
+    IEI · © 2026 — Todos los derechos reservados
+  </p>
 </footer>
 
 <script type="module" src="{{ url('static/js/app.js') }}"></script>

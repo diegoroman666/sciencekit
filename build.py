@@ -125,11 +125,9 @@ def copy_assets() -> None:
         total += source.stat().st_size
     print(f"  copied core/ ({len(CORE_MODULES)} módulos, {total:,} bytes)")
 
-    sample = ROOT / "sample_data" / "rendimiento_cultivos.csv"
-    if sample.exists():
-        (DIST / "sample_data").mkdir(parents=True, exist_ok=True)
-        shutil.copy2(sample, DIST / "sample_data" / sample.name)
-        print(f"  copied sample_data/{sample.name}")
+    # The sample tables are also embedded in core/sample.py; these copies exist
+    # so the CSVs can be linked and re-uploaded as ordinary files.
+    copy_tree(ROOT / "sample_data", DIST / "sample_data", "sample_data")
 
 
 def write_headers() -> None:
