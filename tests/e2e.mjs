@@ -414,6 +414,68 @@ async function main() {
     );
   });
 
+  await check("el logo lleva de vuelta al inicio sin perder el dataset", async () => {
+    const home = await boot(browser);
+    consoleErrors.push(...home.errors);
+    const p = home.page;
+
+    equal(await p.locator("#btn-resume").isVisible(), false, "resume antes de cargar");
+
+    await p.click('[data-sample="salud"]');
+    await p.waitForSelector("#workspace:not([hidden])");
+
+    await p.click("#btn-home");
+    await p.waitForSelector("#empty:not([hidden])");
+    equal(await p.locator("#workspace").isVisible(), false, "workspace oculto en el inicio");
+    equal(await p.locator("#samples-grid").isVisible(), true, "galería visible en el inicio");
+
+    // Nothing is lost: the way back is one click, and it names the table.
+    equal(await p.locator("#btn-resume").isVisible(), true, "botón de volver visible");
+    // `innerText` comes back uppercased: the button carries text-transform.
+    assert(
+      (await p.locator("#btn-resume").innerText())
+        .toLowerCase()
+        .includes("salud_cardiovascular.csv"),
+      "el botón de volver no nombra el dataset"
+    );
+
+    await p.click("#btn-resume");
+    await p.waitForSelector("#workspace:not([hidden])");
+    assert(
+      (await p.locator("#status-line").innerText()).includes("150 filas"),
+      "el dataset no sobrevivió al viaje de ida y vuelta"
+    );
+    assert((await p.locator("#stats-out .metric").count()) > 0, "el módulo 01 quedó vacío");
+    await p.close();
+  });
+
+  await check("el logo es un botón alcanzable con el teclado", async () => {
+    const home = await boot(browser);
+    consoleErrors.push(...home.errors);
+    const p = home.page;
+    await p.click('[data-sample="ventas"]');
+    await p.waitForSelector("#workspace:not([hidden])");
+    await p.focus("#btn-home");
+    await p.keyboard.press("Enter");
+    await p.waitForSelector("#empty:not([hidden])");
+    equal(await p.locator("#workspace").isVisible(), false, "no volvió al inicio con Enter");
+    await p.close();
+  });
+
+  await check("pulsar el logo estando ya en el inicio no rompe nada", async () => {
+    await ux.page.click("#btn-home");
+    equal(await ux.page.locator("#empty").isVisible(), true, "el inicio dejó de verse");
+    equal(await ux.page.locator("#btn-resume").isVisible(), true, "resume tras volver");
+  });
+
+  await check("el título sigue siendo un único encabezado de nivel 1", async () => {
+    equal(await ux.page.locator("h1").count(), 1, "número de h1");
+    assert(
+      (await ux.page.locator("h1").innerText()).includes("SciencKit"),
+      "el h1 perdió su texto"
+    );
+  });
+
   await check("el cambio de tema persiste tras recargar", async () => {
     await ux.page.click("#btn-theme");
     const theme = await ux.page.getAttribute("html", "data-theme");

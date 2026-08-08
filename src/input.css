@@ -162,6 +162,13 @@
     @apply bg-flame text-white hover:bg-flame-soft hover:text-shell;
   }
 
+  /* The wordmark as a control: it has to read as text, so the only affordance
+     is the pointer and a slight fade — plus the shared focus ring. */
+  .brand {
+    @apply inline-flex items-baseline gap-2.5 cursor-pointer
+           transition-opacity duration-150 hover:opacity-65;
+  }
+
   .btn-ghost {
     @apply btn border border-rule text-ink-2 hover:border-ink hover:text-ink
            bg-transparent;
