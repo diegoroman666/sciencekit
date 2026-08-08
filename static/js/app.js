@@ -339,6 +339,32 @@ function showEmptyError(message) {
   target.innerHTML = errorBox(message);
 }
 
+/** Show the start screen without discarding the dataset under analysis. */
+function goHome() {
+  $("#workspace").hidden = true;
+  $("#empty").hidden = false;
+  syncResumeButton();
+  window.scrollTo({ top: 0, behavior: "auto" });
+}
+
+/** Back to the workspace, with whatever was already loaded. */
+function resumeAnalysis() {
+  if (!state.dataset) return;
+  $("#empty").hidden = true;
+  $("#workspace").hidden = false;
+  window.scrollTo({ top: 0, behavior: "auto" });
+}
+
+/** The resume button only makes sense while a dataset is loaded. */
+function syncResumeButton() {
+  const button = $("#btn-resume");
+  if (!button) return;
+  button.hidden = !state.dataset;
+  if (state.dataset) {
+    button.textContent = `Volver a ${state.dataset.name}`;
+  }
+}
+
 /** Adopt a freshly parsed dataset: reset state, populate every control. */
 function adoptDataset(dataset) {
   state.dataset = dataset;
@@ -347,6 +373,7 @@ function adoptDataset(dataset) {
 
   $("#empty").hidden = true;
   $("#workspace").hidden = false;
+  syncResumeButton();
 
   renderInspector();
   populateSelects();
@@ -994,6 +1021,8 @@ function wire() {
     e.target.value = ""; // allow re-selecting the same file
   });
 
+  $("#btn-home").addEventListener("click", goHome);
+  $("#btn-resume").addEventListener("click", resumeAnalysis);
   $("#btn-demo").addEventListener("click", () => loadDemo());
 
   // Gallery cards are rendered after boot, so the listener sits on the grid.

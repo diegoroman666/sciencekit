@@ -414,6 +414,68 @@ async function main() {
     );
   });
 
+  await check("el logo lleva de vuelta al inicio sin perder el dataset", async () => {
+    const home = await boot(browser);
+    consoleErrors.push(...home.errors);
+    const p = home.page;
+
+    equal(await p.locator("#btn-resume").isVisible(), false, "resume antes de cargar");
+
+    await p.click('[data-sample="salud"]');
+    await p.waitForSelector("#workspace:not([hidden])");
+
+    await p.click("#btn-home");
+    await p.waitForSelector("#empty:not([hidden])");
+    equal(await p.locator("#workspace").isVisible(), false, "workspace oculto en el inicio");
+    equal(await p.locator("#samples-grid").isVisible(), true, "galería visible en el inicio");
+
+    // Nothing is lost: the way back is one click, and it names the table.
+    equal(await p.locator("#btn-resume").isVisible(), true, "botón de volver visible");
+    // `innerText` comes back uppercased: the button carries text-transform.
+    assert(
+      (await p.locator("#btn-resume").innerText())
+        .toLowerCase()
+        .includes("salud_cardiovascular.csv"),
+      "el botón de volver no nombra el dataset"
+    );
+
+    await p.click("#btn-resume");
+    await p.waitForSelector("#workspace:not([hidden])");
+    assert(
+      (await p.locator("#status-line").innerText()).includes("150 filas"),
+      "el dataset no sobrevivió al viaje de ida y vuelta"
+    );
+    assert((await p.locator("#stats-out .metric").count()) > 0, "el módulo 01 quedó vacío");
+    await p.close();
+  });
+
+  await check("el logo es un botón alcanzable con el teclado", async () => {
+    const home = await boot(browser);
+    consoleErrors.push(...home.errors);
+    const p = home.page;
+    await p.click('[data-sample="ventas"]');
+    await p.waitForSelector("#workspace:not([hidden])");
+    await p.focus("#btn-home");
+    await p.keyboard.press("Enter");
+    await p.waitForSelector("#empty:not([hidden])");
+    equal(await p.locator("#workspace").isVisible(), false, "no volvió al inicio con Enter");
+    await p.close();
+  });
+
+  await check("pulsar el logo estando ya en el inicio no rompe nada", async () => {
+    await ux.page.click("#btn-home");
+    equal(await ux.page.locator("#empty").isVisible(), true, "el inicio dejó de verse");
+    equal(await ux.page.locator("#btn-resume").isVisible(), true, "resume tras volver");
+  });
+
+  await check("el título sigue siendo un único encabezado de nivel 1", async () => {
+    equal(await ux.page.locator("h1").count(), 1, "número de h1");
+    assert(
+      (await ux.page.locator("h1").innerText()).includes("SciencKit"),
+      "el h1 perdió su texto"
+    );
+  });
+
   await check("el cambio de tema persiste tras recargar", async () => {
     await ux.page.click("#btn-theme");
     const theme = await ux.page.getAttribute("html", "data-theme");
@@ -553,6 +615,54 @@ async function main() {
         failing.push(...(await themed.page.evaluate(measureContrast)).filter((s) => s.ratio < 4.5));
       }
       equal(failing.length, 0, report(failing));
+    });
+
+    await check(`${scheme}: las opciones del desplegable se leen al abrirlo`, async () => {
+      // The popup is rendered by the browser, outside the page, so it cannot be
+      // screenshotted — but the colours the browser uses are readable here, and
+      // they are what decides whether the list is legible.
+      const worst = await themed.page.evaluate(() => {
+        const parse = (v) => (v.match(/[\d.]+/g) || []).slice(0, 3).map(Number);
+        const luminance = ([r, g, b]) => {
+          const channel = (c) => {
+            const v = c / 255;
+            return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
+          };
+          return 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b);
+        };
+        const ratios = Array.from(document.querySelectorAll("select.field option")).map(
+          (option) => {
+            const style = getComputedStyle(option);
+            const [a, b] = [
+              luminance(parse(style.backgroundColor)),
+              luminance(parse(style.color)),
+            ].sort((x, y) => y - x);
+            return (a + 0.05) / (b + 0.05);
+          }
+        );
+        return ratios.length ? Math.min(...ratios) : null;
+      });
+      assert(worst !== null, "no se encontró ninguna opción");
+      assert(worst >= 4.5, `opción a ${worst.toFixed(2)}:1 sobre su propio fondo`);
+    });
+
+    await check(`${scheme}: el crédito del pie está centrado`, async () => {
+      const centred = await themed.page.evaluate(() => {
+        const credit = Array.from(document.querySelectorAll("footer p")).find((p) =>
+          /Diego Rom[áa]n/.test(p.textContent)
+        );
+        if (!credit) return null;
+        const box = credit.getBoundingClientRect();
+        return {
+          align: getComputedStyle(credit).textAlign,
+          offset: Math.abs(
+            (box.left + box.right) / 2 - document.documentElement.clientWidth / 2
+          ),
+        };
+      });
+      assert(centred, "no se encontró la línea de crédito en el pie");
+      equal(centred.align, "center", "alineación del crédito");
+      assert(centred.offset < 4, `el bloque del crédito está desplazado ${centred.offset}px`);
     });
 
     await check(`${scheme}: el botón primario contrasta también con el puntero encima`, async () => {
