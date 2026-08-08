@@ -1,0 +1,309 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+{# ── Boot overlay: covers the app while the Python runtime loads ───────── #}
+<div id="boot" class="fixed inset-0 z-50 flex items-center justify-center bg-paper dark:bg-shell px-6">
+  <div class="w-full max-w-sm">
+    <div class="flex items-baseline gap-2.5 mb-5">
+      <span class="font-mono text-[11px] tracking-[0.2em] text-flame">SK</span>
+      <span class="display text-[17px]">SciencKit</span>
+    </div>
+    <div class="label mb-2.5" id="boot-status">Iniciando motor de Python…</div>
+    <div class="relative h-[2px] w-full overflow-hidden bg-rule dark:bg-rule-dark boot-bar"></div>
+    <p class="mt-5 font-mono text-[11px] leading-relaxed text-ink-3 dark:text-chalk-3">
+      El motor de cálculo está escrito en Python y se ejecuta localmente en
+      tu navegador. Los datos nunca salen de tu equipo.
+    </p>
+    <div id="boot-error" class="mt-5 hidden"></div>
+  </div>
+</div>
+
+{# ── Top bar ───────────────────────────────────────────────────────────── #}
+<header class="sticky top-0 z-30 border-b rule bg-paper/85 dark:bg-shell/85 backdrop-blur-md">
+  <div class="flex items-center gap-4 h-14 px-4 sm:px-6">
+    <div class="flex items-baseline gap-2.5 shrink-0">
+      <span class="font-mono text-[11px] tracking-[0.2em] text-flame">SK</span>
+      <h1 class="display text-[15px] leading-none">SciencKit</h1>
+      <span class="hidden sm:inline label !text-[9px] pl-1">v{{ version }}</span>
+    </div>
+
+    {# Live dataset readout — the instrument's status line #}
+    <div class="flex-1 min-w-0 hidden md:block">
+      <div id="status-line" class="font-mono text-[11px] text-ink-3 dark:text-chalk-3 truncate">
+        <span class="text-flame">●</span> sin dataset — cargue un archivo para comenzar
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2 shrink-0">
+      <button id="btn-load" class="btn-ghost" title="Cargar CSV o XLSX">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M8 11V3M8 3L5 6M8 3l3 3M2.5 10.5v2A1 1 0 003.5 13.5h9a1 1 0 001-1v-2"/>
+        </svg>
+        <span class="hidden sm:inline">Cargar</span>
+      </button>
+      <button id="btn-theme" class="btn-ghost !px-2.5" title="Cambiar tema" aria-label="Cambiar tema">
+        <svg id="icon-sun" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <circle cx="8" cy="8" r="3.1"/>
+          <path d="M8 1v1.6M8 13.4V15M1 8h1.6M13.4 8H15M3.1 3.1l1.1 1.1M11.8 11.8l1.1 1.1M12.9 3.1l-1.1 1.1M4.2 11.8l-1.1 1.1"/>
+        </svg>
+        <svg id="icon-moon" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" class="hidden" aria-hidden="true">
+          <path d="M13.5 9.7A5.9 5.9 0 016.3 2.5a5.9 5.9 0 107.2 7.2z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<input type="file" id="file-input" accept=".csv,.tsv,.txt,.xlsx,.xlsm" class="hidden">
+
+{# ── Empty state ───────────────────────────────────────────────────────── #}
+<section id="empty" class="flex-1 flex items-center px-4 sm:px-6 lg:px-10 py-12">
+  <div class="w-full max-w-5xl mx-auto grid gap-10 lg:gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+  <div>
+    <p class="label mb-3">Minería y análisis de datos</p>
+    <h2 class="display text-[clamp(1.9rem,5vw,2.9rem)] leading-[1.06] mb-4">
+      Cargue una tabla.<br>
+      Obtenga la estadística<br>
+      <span class="text-flame">que importa.</span>
+    </h2>
+    <p class="text-[14.5px] leading-relaxed text-ink-2 dark:text-chalk-2 mb-8 max-w-md">
+      Estadística descriptiva, gráficos, regresión lineal y probabilidad normal
+      sobre sus propios datos. Sin registro y sin subir nada a un servidor.
+    </p>
+
+    {# Drop zone #}
+    <div id="drop" class="relative border border-dashed rule rounded-card px-5 py-7 transition-colors duration-150">
+      <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5">
+        <div class="flex-1">
+          <p class="font-mono text-[12px] text-ink-2 dark:text-chalk-2 mb-1">
+            Arrastre un archivo aquí
+          </p>
+          <p class="font-mono text-[10.5px] text-ink-3 dark:text-chalk-3">
+            .csv · .tsv · .xlsx — máx. 8&nbsp;MB
+          </p>
+        </div>
+        <button id="btn-load-2" class="btn-primary shrink-0">Elegir archivo</button>
+      </div>
+      <div id="drop-overlay" class="absolute inset-0 hidden items-center justify-center bg-flame/[0.07] border border-flame rounded-card">
+        <span class="font-mono text-[11px] uppercase tracking-[0.14em] text-flame">Suelte para cargar</span>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-3 mt-6">
+      <button id="btn-demo" class="btn-ghost">Probar con datos de ejemplo</button>
+      <span class="font-mono text-[10.5px] text-ink-3 dark:text-chalk-3 hidden sm:inline">
+        140 parcelas agrícolas
+      </span>
+    </div>
+
+    <div id="empty-error" class="mt-6"></div>
+  </div>
+
+  {# What the four modules do — orients a first-time visitor without a tour #}
+  <ol class="border-t rule lg:border-t-0 pt-8 lg:pt-1">
+    <li class="flex gap-4 py-3.5 border-b rule">
+      <span class="rail-num shrink-0 pt-1">01</span>
+      <div>
+        <p class="text-[13.5px] font-medium mb-0.5">Datos estadísticos</p>
+        <p class="text-[12.5px] leading-relaxed text-ink-3 dark:text-chalk-3">
+          Media, mediana, moda, desviación, cuartiles e histograma — o tabla de
+          frecuencias si la variable es cualitativa.
+        </p>
+      </div>
+    </li>
+    <li class="flex gap-4 py-3.5 border-b rule">
+      <span class="rail-num shrink-0 pt-1">02</span>
+      <div>
+        <p class="text-[13.5px] font-medium mb-0.5">Gráficos</p>
+        <p class="text-[12.5px] leading-relaxed text-ink-3 dark:text-chalk-3">
+          Dispersión, histograma y barras, con recta de ajuste opcional.
+        </p>
+      </div>
+    </li>
+    <li class="flex gap-4 py-3.5 border-b rule">
+      <span class="rail-num shrink-0 pt-1">03</span>
+      <div>
+        <p class="text-[13.5px] font-medium mb-0.5">Predicción</p>
+        <p class="text-[12.5px] leading-relaxed text-ink-3 dark:text-chalk-3">
+          Regresión lineal con R², correlación y error estándar, más un
+          simulador que proyecta valores nuevos.
+        </p>
+      </div>
+    </li>
+    <li class="flex gap-4 py-3.5">
+      <span class="rail-num shrink-0 pt-1">04</span>
+      <div>
+        <p class="text-[13.5px] font-medium mb-0.5">Probabilidad</p>
+        <p class="text-[12.5px] leading-relaxed text-ink-3 dark:text-chalk-3">
+          Distribución normal ajustada a sus datos: P(X&lt;a), P(X&gt;a),
+          intervalos y colas.
+        </p>
+      </div>
+    </li>
+  </ol>
+  </div>
+</section>
+
+{# ── Workspace ─────────────────────────────────────────────────────────── #}
+{# Visibility is driven by the `hidden` ATTRIBUTE, not the class: a responsive
+   display utility like `md:grid` outranks the `hidden` class and would leak the
+   workspace onto the empty state. `flex-col` stacks the rail above the content
+   on mobile; `md:grid` moves it alongside from the medium breakpoint up. #}
+<main id="workspace" hidden class="flex-1 flex flex-col md:grid md:grid-cols-[248px_1fr] md:items-stretch">
+
+  {# Module rail + dataset inspector #}
+  <aside class="border-b md:border-b-0 md:border-r rule md:sticky md:top-14 md:h-[calc(100vh-3.5rem)] flex flex-col">
+    <nav id="rail" class="flex md:flex-col overflow-x-auto thin-scroll border-b rule md:border-b-0 shrink-0" aria-label="Módulos">
+      <button class="rail-item shrink-0" data-view="datos" aria-current="true">
+        <span class="rail-num">01</span>
+        <span class="rail-label">Datos&nbsp;estadísticos</span>
+      </button>
+      <button class="rail-item shrink-0" data-view="graficos">
+        <span class="rail-num">02</span>
+        <span class="rail-label">Gráficos</span>
+      </button>
+      <button class="rail-item shrink-0" data-view="prediccion">
+        <span class="rail-num">03</span>
+        <span class="rail-label">Predicción</span>
+      </button>
+      <button class="rail-item shrink-0" data-view="probabilidad">
+        <span class="rail-num">04</span>
+        <span class="rail-label">Probabilidad</span>
+      </button>
+    </nav>
+
+    {# Dataset inspector — column list with inferred types #}
+    <div class="hidden md:flex md:flex-col md:min-h-0 md:flex-1 border-t rule">
+      <div class="px-4 pt-4 pb-2 shrink-0">
+        <p class="label mb-1.5">Dataset</p>
+        <p id="ds-name" class="font-mono text-[11.5px] text-ink dark:text-chalk truncate" title="">—</p>
+        <p id="ds-shape" class="font-mono text-[10.5px] text-ink-3 dark:text-chalk-3 mt-0.5 tnum">—</p>
+      </div>
+      <div class="px-4 pb-2 shrink-0">
+        <p class="label">Columnas</p>
+      </div>
+      <ul id="ds-columns" class="flex-1 overflow-y-auto thin-scroll px-4 pb-4 space-y-1.5"></ul>
+    </div>
+  </aside>
+
+  {# Working area #}
+  <div class="min-w-0">
+
+    {# ═══ 01 — Descriptive statistics ═══ #}
+    <section data-panel="datos" class="p-4 sm:p-6 lg:p-8">
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+        <div>
+          <p class="label mb-1.5">Módulo 01</p>
+          <h2 class="display text-[22px] leading-tight">Datos estadísticos</h2>
+        </div>
+        <div class="w-full sm:w-72">
+          <label class="label block mb-1.5" for="stats-col">Variable de estudio</label>
+          <select id="stats-col" class="field"></select>
+        </div>
+      </div>
+
+      <div id="stats-out" class="space-y-6"></div>
+    </section>
+
+    {# ═══ 02 — Charts ═══ #}
+    <section data-panel="graficos" class="hidden p-4 sm:p-6 lg:p-8">
+      <div class="mb-6">
+        <p class="label mb-1.5">Módulo 02</p>
+        <h2 class="display text-[22px] leading-tight">Generador de gráficos</h2>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-6">
+        <div>
+          <label class="label block mb-1.5" for="chart-type">Tipo</label>
+          <select id="chart-type" class="field">
+            <option value="scatter">Dispersión (X vs Y)</option>
+            <option value="histogram">Histograma</option>
+            <option value="bars">Barras de frecuencia</option>
+          </select>
+        </div>
+        <div>
+          <label class="label block mb-1.5" for="chart-x">
+            <span id="chart-x-label">Eje X</span>
+          </label>
+          <select id="chart-x" class="field"></select>
+        </div>
+        <div id="chart-y-wrap">
+          <label class="label block mb-1.5" for="chart-y">Eje Y</label>
+          <select id="chart-y" class="field"></select>
+        </div>
+        <div id="chart-fit-wrap" class="flex items-end">
+          <label class="flex items-center gap-2.5 h-10 cursor-pointer select-none">
+            <input type="checkbox" id="chart-fit" class="accent-flame w-3.5 h-3.5 cursor-pointer">
+            <span class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-2 dark:text-chalk-2">
+              Línea de ajuste
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div id="chart-out"></div>
+    </section>
+
+    {# ═══ 03 — Prediction ═══ #}
+    <section data-panel="prediccion" class="hidden p-4 sm:p-6 lg:p-8">
+      <div class="mb-6">
+        <p class="label mb-1.5">Módulo 03</p>
+        <h2 class="display text-[22px] leading-tight">Predicción por regresión lineal</h2>
+        <p class="text-[13.5px] text-ink-2 dark:text-chalk-2 mt-2 max-w-xl leading-relaxed">
+          Ajusta un modelo <span class="font-mono text-ink dark:text-chalk">y = mx + b</span>
+          por mínimos cuadrados entre dos variables cuantitativas y lo usa para
+          proyectar valores.
+        </p>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-[1fr_1fr_auto] sm:items-end mb-6">
+        <div>
+          <label class="label block mb-1.5" for="reg-x">Variable independiente (X)</label>
+          <select id="reg-x" class="field"></select>
+        </div>
+        <div>
+          <label class="label block mb-1.5" for="reg-y">Variable dependiente (Y)</label>
+          <select id="reg-y" class="field"></select>
+        </div>
+        <button id="btn-train" class="btn-primary">Ajustar modelo</button>
+      </div>
+
+      <div id="reg-out" class="space-y-6"></div>
+    </section>
+
+    {# ═══ 04 — Probability ═══ #}
+    <section data-panel="probabilidad" class="hidden p-4 sm:p-6 lg:p-8">
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+        <div>
+          <p class="label mb-1.5">Módulo 04</p>
+          <h2 class="display text-[22px] leading-tight">Probabilidad — distribución normal</h2>
+        </div>
+        <div class="w-full sm:w-72">
+          <label class="label block mb-1.5" for="prob-col">Variable cuantitativa</label>
+          <select id="prob-col" class="field"></select>
+        </div>
+      </div>
+
+      <div id="prob-out" class="space-y-6"></div>
+    </section>
+
+  </div>
+</main>
+
+{# ── Footer ────────────────────────────────────────────────────────────── #}
+<footer class="border-t rule px-4 sm:px-6 py-5">
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+    <p class="font-mono text-[10.5px] text-ink-3 dark:text-chalk-3">
+      Motor de cálculo en Python · ejecutado en el navegador con
+      <a href="https://pyodide.org" target="_blank" rel="noopener noreferrer"
+         class="underline decoration-dotted underline-offset-2 hover:text-flame">Pyodide</a>
+    </p>
+    <p class="font-mono text-[10.5px] text-ink-3 dark:text-chalk-3">
+      Interfaz con Tailwind CSS · SciencKit v{{ version }}
+    </p>
+  </div>
+</footer>
+
+<script type="module" src="{{ url('static/js/app.js') }}"></script>
+{% endblock %}

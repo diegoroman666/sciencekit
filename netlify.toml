@@ -1,0 +1,30 @@
+# Netlify build configuration.
+#
+# The deployed site is fully static: the Python engine in core/ is executed in
+# the visitor's browser by Pyodide (CPython compiled to WebAssembly). Netlify
+# does not run Python server-side, so there are no functions here.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  PYTHON_VERSION = "3.11"
+
+# Single page, so anything unresolved falls back to it rather than a 404 page.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/core/*"
+  [headers.values]
+    Content-Type = "text/x-python; charset=utf-8"
+
+[context.deploy-preview]
+  command = "npm run build"
+
+[context.production]
+  command = "npm run build"
