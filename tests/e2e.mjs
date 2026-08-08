@@ -555,6 +555,54 @@ async function main() {
       equal(failing.length, 0, report(failing));
     });
 
+    await check(`${scheme}: las opciones del desplegable se leen al abrirlo`, async () => {
+      // The popup is rendered by the browser, outside the page, so it cannot be
+      // screenshotted — but the colours the browser uses are readable here, and
+      // they are what decides whether the list is legible.
+      const worst = await themed.page.evaluate(() => {
+        const parse = (v) => (v.match(/[\d.]+/g) || []).slice(0, 3).map(Number);
+        const luminance = ([r, g, b]) => {
+          const channel = (c) => {
+            const v = c / 255;
+            return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
+          };
+          return 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b);
+        };
+        const ratios = Array.from(document.querySelectorAll("select.field option")).map(
+          (option) => {
+            const style = getComputedStyle(option);
+            const [a, b] = [
+              luminance(parse(style.backgroundColor)),
+              luminance(parse(style.color)),
+            ].sort((x, y) => y - x);
+            return (a + 0.05) / (b + 0.05);
+          }
+        );
+        return ratios.length ? Math.min(...ratios) : null;
+      });
+      assert(worst !== null, "no se encontró ninguna opción");
+      assert(worst >= 4.5, `opción a ${worst.toFixed(2)}:1 sobre su propio fondo`);
+    });
+
+    await check(`${scheme}: el crédito del pie está centrado`, async () => {
+      const centred = await themed.page.evaluate(() => {
+        const credit = Array.from(document.querySelectorAll("footer p")).find((p) =>
+          /Diego Rom[áa]n/.test(p.textContent)
+        );
+        if (!credit) return null;
+        const box = credit.getBoundingClientRect();
+        return {
+          align: getComputedStyle(credit).textAlign,
+          offset: Math.abs(
+            (box.left + box.right) / 2 - document.documentElement.clientWidth / 2
+          ),
+        };
+      });
+      assert(centred, "no se encontró la línea de crédito en el pie");
+      equal(centred.align, "center", "alineación del crédito");
+      assert(centred.offset < 4, `el bloque del crédito está desplazado ${centred.offset}px`);
+    });
+
     await check(`${scheme}: el botón primario contrasta también con el puntero encima`, async () => {
       await themed.page.click('[data-view="datos"]');
       await themed.page.hover("#btn-load");
